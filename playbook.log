@@ -1,0 +1,1626 @@
+2023-07-26 16:58:13,260 p=43689 u=anappi n=ansible | [WARNING]: No inventory was parsed, only implicit localhost is available
+
+2023-07-26 16:58:13,269 p=43689 u=anappi n=ansible | [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+
+2023-07-26 16:58:13,507 p=43689 u=anappi n=ansible | PLAY [Test KICS] ***************************************************************************************************************
+2023-07-26 16:58:13,555 p=43689 u=anappi n=ansible | TASK [test-role-1 : Scan with KICS] ********************************************************************************************
+2023-07-26 16:58:33,868 p=43689 u=anappi n=ansible | fatal: [localhost]: FAILED! => changed=false 
+  cmd:
+  - docker
+  - run
+  - --rm
+  - -t
+  - -v
+  - /Users/anappi/repositories/wex-kics-bug-recreation:/workspace
+  - checkmarx/kics:v1.7.4
+  - scan
+  - --ci
+  - -p
+  - /workspace/test-role-1
+  - -o
+  - /workspace/kics
+  - --report-formats
+  - json,html
+  - --log-level=DEBUG
+  delta: '0:00:19.532122'
+  end: '2023-07-26 16:58:33.654840'
+  msg: non-zero return code
+  rc: 30
+  start: '2023-07-26 16:58:14.122718'
+  stderr: ''
+  stderr_lines: <omitted>
+  stdout: |-
+    8:58PM DBG console.scan()
+    8:58PM DBG console.scan()
+    8:58PM INF Scanning with Keeping Infrastructure as Code Secure v1.7.4
+    8:58PM INF Operating system: linux
+    8:58PM INF Total memory: 7.8G
+    8:58PM INF CPU: 8.0
+    8:58PM DBG storage.NewMemoryStorage()
+    8:58PM DBG Looking for queries in executable path and in current work directory
+    8:58PM DBG helpers.GetDefaultQueryPath()
+    8:58PM DBG helpers.GetExecutableDirectory()
+    8:58PM DBG Queries found in /app/bin/assets/queries
+    8:58PM INF Total files in the project: 2
+    8:58PM INF Loading queries of type: serverlessfw, ansible, cloudformation
+    8:58PM DBG source.NewFilesystemSource()
+    8:58PM DBG engine.NewInspector()
+    8:58PM DBG Excluding query ID: 124b173b-e06d-48a6-8acd-f889443d97a4 category: Bill Of Materials severity: TRACE
+    8:58PM DBG Excluding query ID: 4e67c0ae-38a0-47f4-a50c-f0c9b75826df category: Bill Of Materials severity: TRACE
+    8:58PM DBG Excluding query ID: 0b0556ea-9cd9-476f-862e-20679dda752b category: Bill Of Materials severity: TRACE
+    8:58PM DBG Excluding query ID: ef05a925-8568-4054-8ff1-f5ba82631c16 category: Bill Of Materials severity: TRACE
+    8:58PM DBG Excluding query ID: c689f51b-9203-43b3-9d8b-caed123f706c category: Bill Of Materials severity: TRACE
+    8:58PM DBG Excluding query ID: d53323be-dde6-4457-9a43-42df737e71d2 category: Bill Of Materials severity: TRACE
+    8:58PM DBG Excluding query ID: 209189f3-c879-48a7-9703-fbcfa96d0cef category: Bill Of Materials severity: TRACE
+    8:58PM DBG Excluding query ID: 2730c169-51d7-4ae7-99b5-584379eff1bb category: Bill Of Materials severity: TRACE
+    8:58PM DBG Excluding query ID: 6ef03ff6-a2bd-483c-851f-631f248bc0ea category: Bill Of Materials severity: TRACE
+    8:58PM DBG Excluding query ID: b5d6a2e0-8f15-4664-bd5b-68ec5c9bab83 category: Bill Of Materials severity: TRACE
+    8:58PM DBG Excluding query ID: 42e7dca3-8cce-4325-8df0-108888259136 category: Bill Of Materials severity: TRACE
+    8:58PM DBG Excluding query ID: 59a849c2-1127-4023-85a5-ef906dcd458c category: Bill Of Materials severity: TRACE
+    8:58PM DBG Custom library common not provided. Loading embedded library instead
+    8:58PM DBG Custom library ansible not provided. Loading embedded library instead
+    8:58PM DBG Could not open embedded library data for ansible platform
+    8:58PM DBG Custom library cloudFormation not provided. Loading embedded library instead
+    8:58PM DBG Could not open embedded library data for cloudFormation platform
+    8:58PM DBG Custom library serverlessFW not provided. Loading embedded library instead
+    8:58PM DBG Could not open embedded library data for serverlessFW platform
+    8:58PM INF Inspector initialized, number of queries=798
+    8:58PM INF Query execution timeout=1m0s
+    8:58PM DBG provider.NewFileSystemSourceProvider()
+    8:58PM DBG parser.NewBuilder()
+    8:58PM DBG resolver.Add()
+    8:58PM DBG resolver.Build()
+    8:58PM DBG Starting to process file /workspace/test-role-1/tasks/main.yml
+    8:58PM DBG Finished to process file /workspace/test-role-1/tasks/main.yml
+    8:58PM DBG Starting to process file /workspace/test-role-1/vars/main.yml
+    8:58PM DBG Finished to process file /workspace/test-role-1/vars/main.yml
+    8:58PM DBG service.StartScan()
+    8:58PM DBG service.StartScan()
+    8:58PM DBG engine.Inspect()
+    8:58PM DBG engine.Inspect()
+    8:58PM DBG Starting to run query access_key_not_rotated_within_90_days
+    8:58PM DBG Finished to run query access_key_not_rotated_within_90_days after 101.816µs
+    8:58PM DBG Starting to run query alb_listening_on_http
+    8:58PM DBG Finished to run query alb_listening_on_http after 313.592µs
+    8:58PM DBG Starting to run query ami_not_encrypted
+    8:58PM DBG Finished to run query ami_not_encrypted after 427.922µs
+    8:58PM DBG Starting to run query alb_is_not_integrated_with_waf
+    8:58PM DBG Finished to run query alb_is_not_integrated_with_waf after 37.798µs
+    8:58PM DBG Starting to run query ami_shared_with_multiple_accounts
+    8:58PM DBG Finished to run query ami_shared_with_multiple_accounts after 284.262µs
+    8:58PM DBG Starting to run query alb_listening_on_http
+    8:58PM DBG Finished to run query alb_listening_on_http after 52.62µs
+    8:58PM DBG Starting to run query api_gateway_endpoint_config_is_not_private
+    8:58PM DBG Finished to run query api_gateway_endpoint_config_is_not_private after 303.345µs
+    8:58PM DBG Starting to run query alexa_skill_plaintext_client_secret_exposed
+    8:58PM DBG Finished to run query alexa_skill_plaintext_client_secret_exposed after 81.459µs
+    8:58PM DBG Starting to run query api_gateway_with_cloudwatch_logging_disabled
+    8:58PM DBG Finished to run query api_gateway_with_cloudwatch_logging_disabled after 296.463µs
+    8:58PM DBG Starting to run query amazon_dms_replication_instance_is_publicly_accessible
+    8:58PM DBG Finished to run query amazon_dms_replication_instance_is_publicly_accessible after 100.641µs
+    8:58PM DBG Starting to run query api_gateway_without_configured_authorizer
+    8:58PM DBG Finished to run query api_gateway_without_configured_authorizer after 647.301µs
+    8:58PM DBG Starting to run query amazon_mq_broker_encryption_disabled
+    8:58PM DBG Finished to run query amazon_mq_broker_encryption_disabled after 112.438µs
+    8:58PM DBG Starting to run query api_gateway_without_ssl_certificate
+    8:58PM DBG Finished to run query api_gateway_without_ssl_certificate after 443.541µs
+    8:58PM DBG Starting to run query amplify_app_access_token_exposed
+    8:58PM DBG Finished to run query amplify_app_access_token_exposed after 141.837µs
+    8:58PM DBG Starting to run query api_gateway_without_waf
+    8:58PM DBG Finished to run query api_gateway_without_waf after 193.522µs
+    8:58PM DBG Starting to run query amplify_app_basic_auth_config_password_exposed
+    8:58PM DBG Finished to run query amplify_app_basic_auth_config_password_exposed after 87.163µs
+    8:58PM DBG Starting to run query api_gateway_xray_disabled
+    8:58PM DBG Finished to run query api_gateway_xray_disabled after 596.628µs
+    8:58PM DBG Starting to run query amplify_app_oauth_token_exposed
+    8:58PM DBG Finished to run query amplify_app_oauth_token_exposed after 133.342µs
+    8:58PM DBG Starting to run query authentication_without_mfa
+    8:58PM DBG Finished to run query authentication_without_mfa after 372.702µs
+    8:58PM DBG Starting to run query amplify_branch_basic_auth_config_password_exposed
+    8:58PM DBG Finished to run query amplify_branch_basic_auth_config_password_exposed after 63.966µs
+    8:58PM DBG Starting to run query auto_scaling_group_with_no_associated_elb
+    8:58PM DBG Finished to run query auto_scaling_group_with_no_associated_elb after 356.791µs
+    8:58PM DBG Starting to run query api_gateway_cache_cluster_disabled
+    8:58PM DBG Finished to run query api_gateway_cache_cluster_disabled after 87.796µs
+    8:58PM DBG Starting to run query automatic_minor_upgrades_disabled
+    8:58PM DBG Finished to run query automatic_minor_upgrades_disabled after 187.587µs
+    8:58PM DBG Starting to run query api_gateway_cache_encrypted_disabled
+    8:58PM DBG Finished to run query api_gateway_cache_encrypted_disabled after 61.56µs
+    8:58PM DBG Starting to run query aws_password_policy_with_unchangeable_passwords
+    8:58PM DBG Finished to run query aws_password_policy_with_unchangeable_passwords after 163.176µs
+    8:58PM DBG Starting to run query batch_job_definition_with_privileged_container_properties
+    8:58PM DBG Finished to run query batch_job_definition_with_privileged_container_properties after 537.228µs
+    8:58PM DBG Starting to run query api_gateway_deployment_without_access_log_setting
+    8:58PM DBG Finished to run query api_gateway_deployment_without_access_log_setting after 152.59µs
+    8:58PM DBG Starting to run query ca_certificate_identifier_is_outdated
+    8:58PM DBG Finished to run query ca_certificate_identifier_is_outdated after 316.19µs
+    8:58PM DBG Starting to run query api_gateway_deployment_without_api_gateway_usage_plan_associated
+    8:58PM DBG Finished to run query api_gateway_deployment_without_api_gateway_usage_plan_associated after 98.572µs
+    8:58PM DBG Starting to run query cdn_configuration_is_missing
+    8:58PM DBG Finished to run query cdn_configuration_is_missing after 399.995µs
+    8:58PM DBG Starting to run query api_gateway_endpoint_config_is_not_private
+    8:58PM DBG Finished to run query api_gateway_endpoint_config_is_not_private after 137.799µs
+    8:58PM DBG Starting to run query certificate_has_expired
+    8:58PM DBG Finished to run query certificate_has_expired after 221.917µs
+    8:58PM DBG Starting to run query api_gateway_method_does_not_contains_an_api_key
+    8:58PM DBG Finished to run query api_gateway_method_does_not_contains_an_api_key after 133.902µs
+    8:58PM DBG Starting to run query certificate_rsa_key_bytes_lower_than_256
+    8:58PM DBG Finished to run query certificate_rsa_key_bytes_lower_than_256 after 451.252µs
+    8:58PM DBG Starting to run query api_gateway_stage_access_logging_settings_not_defined
+    8:58PM DBG Finished to run query api_gateway_stage_access_logging_settings_not_defined after 115.666µs
+    8:58PM DBG Starting to run query cloudfront_logging_disabled
+    8:58PM DBG Finished to run query cloudfront_logging_disabled after 437.604µs
+    8:58PM DBG Starting to run query api_gateway_stage_without_api_gateway_usage_plan_associated
+    8:58PM DBG Finished to run query api_gateway_stage_without_api_gateway_usage_plan_associated after 122.02µs
+    8:58PM DBG Starting to run query cloudfront_without_minimum_protocol_tls_1.2
+    8:58PM DBG Finished to run query cloudfront_without_minimum_protocol_tls_1.2 after 399.107µs
+    8:58PM DBG Starting to run query api_gateway_with_invalid_compression
+    8:58PM DBG Finished to run query api_gateway_with_invalid_compression after 71.252µs
+    8:58PM DBG Starting to run query cloudfront_without_waf
+    8:58PM DBG Finished to run query cloudfront_without_waf after 215.06µs
+    8:58PM DBG Starting to run query api_gateway_with_open_access
+    8:58PM DBG Finished to run query api_gateway_with_open_access after 249.97µs
+    8:58PM DBG Starting to run query cloudtrail_log_file_validation_disabled
+    8:58PM DBG Finished to run query cloudtrail_log_file_validation_disabled after 346.561µs
+    8:58PM DBG Starting to run query api_gateway_without_configured_authorizer
+    8:58PM DBG Finished to run query api_gateway_without_configured_authorizer after 61.544µs
+    8:58PM DBG Starting to run query cloudtrail_log_files_not_encrypted_with_kms
+    8:58PM DBG Finished to run query cloudtrail_log_files_not_encrypted_with_kms after 395.693µs
+    8:58PM DBG Starting to run query cloudtrail_logging_disabled
+    8:58PM DBG Finished to run query cloudtrail_logging_disabled after 226.263µs
+    8:58PM DBG Starting to run query api_gateway_without_security_policy
+    8:58PM DBG Finished to run query api_gateway_without_security_policy after 125.786µs
+    8:58PM DBG Starting to run query cloudtrail_multi_region_disabled
+    8:58PM DBG Finished to run query cloudtrail_multi_region_disabled after 360.509µs
+    8:58PM DBG Starting to run query api_gateway_without_ssl_certificate
+    8:58PM DBG Finished to run query api_gateway_without_ssl_certificate after 846.912µs
+    8:58PM DBG Starting to run query cloudtrail_not_integrated_with_cloudwatch
+    8:58PM DBG Finished to run query cloudtrail_not_integrated_with_cloudwatch after 347.782µs
+    8:58PM DBG Starting to run query api_gateway_without_waf
+    8:58PM DBG Finished to run query api_gateway_without_waf after 172.267µs
+    8:58PM DBG Starting to run query cloudtrail_sns_topic_name_undefined
+    8:58PM DBG Finished to run query cloudtrail_sns_topic_name_undefined after 434.855µs
+    8:58PM DBG Starting to run query api_gateway_xray_disabled
+    8:58PM DBG Finished to run query api_gateway_xray_disabled after 78.627µs
+    8:58PM DBG Starting to run query cloudwatch_without_retention_period_specified
+    8:58PM DBG Finished to run query cloudwatch_without_retention_period_specified after 374.605µs
+    8:58PM DBG Starting to run query auto_scaling_group_with_no_associated_elb
+    8:58PM DBG Finished to run query auto_scaling_group_with_no_associated_elb after 96.45µs
+    8:58PM DBG Starting to run query cmk_is_unusable
+    8:58PM DBG Finished to run query cmk_is_unusable after 347.078µs
+    8:58PM DBG Starting to run query automatic_minor_upgrades_disabled
+    8:58PM DBG Finished to run query automatic_minor_upgrades_disabled after 118.352µs
+    8:58PM DBG Starting to run query cmk_rotation_disabled
+    8:58PM DBG Finished to run query cmk_rotation_disabled after 327.595µs
+    8:58PM DBG Starting to run query batch_job_definition_with_privileged_container_properties
+    8:58PM DBG Finished to run query batch_job_definition_with_privileged_container_properties after 86.904µs
+    8:58PM DBG Starting to run query codebuild_not_encrypted
+    8:58PM DBG Finished to run query codebuild_not_encrypted after 309.935µs
+    8:58PM DBG Starting to run query cdn_configuration_is_missing
+    8:58PM DBG Finished to run query cdn_configuration_is_missing after 91.57µs
+    8:58PM DBG Starting to run query config_configuration_aggregator_to_all_regions_disabled
+    8:58PM DBG Finished to run query config_configuration_aggregator_to_all_regions_disabled after 305.414µs
+    8:58PM DBG Starting to run query cloudformation_specifying_credentials_not_safe
+    8:58PM DBG Finished to run query cloudformation_specifying_credentials_not_safe after 54.873µs
+    8:58PM DBG Starting to run query config_rule_for_encrypted_volumes_is_disabled
+    8:58PM DBG Finished to run query config_rule_for_encrypted_volumes_is_disabled after 371.103µs
+    8:58PM DBG Starting to run query cloudfront_logging_disabled
+    8:58PM DBG Finished to run query cloudfront_logging_disabled after 129.317µs
+    8:58PM DBG Starting to run query cross_account_iam_assume_role_policy_without_external_id_or_mfa
+    8:58PM DBG Finished to run query cross_account_iam_assume_role_policy_without_external_id_or_mfa after 1.42257ms
+    8:58PM DBG Starting to run query cloudfront_viewer_protocol_policy_allows_http
+    8:58PM DBG Finished to run query cloudfront_viewer_protocol_policy_allows_http after 61.397µs
+    8:58PM DBG Starting to run query db_instance_publicly_accessible
+    8:58PM DBG Finished to run query db_instance_publicly_accessible after 220.526µs
+    8:58PM DBG Starting to run query cloudfront_without_minimum_protocol_tls_1.2
+    8:58PM DBG Finished to run query cloudfront_without_minimum_protocol_tls_1.2 after 91.256µs
+    8:58PM DBG Starting to run query db_instance_storage_not_encrypted
+    8:58PM DBG Finished to run query db_instance_storage_not_encrypted after 358.347µs
+    8:58PM DBG Starting to run query db_security_group_open_to_large_scope
+    8:58PM DBG Finished to run query db_security_group_open_to_large_scope after 476.174µs
+    8:58PM DBG Starting to run query cloudfront_without_waf
+    8:58PM DBG Finished to run query cloudfront_without_waf after 28.901µs
+    8:58PM DBG Starting to run query db_security_group_with_public_scope
+    8:58PM DBG Finished to run query db_security_group_with_public_scope after 301.165µs
+    8:58PM DBG Starting to run query cloudtrail_log_file_validation_disabled
+    8:58PM DBG Finished to run query cloudtrail_log_file_validation_disabled after 52.022µs
+    8:58PM DBG Starting to run query default_security_groups_with_unrestricted_traffic
+    8:58PM DBG Finished to run query default_security_groups_with_unrestricted_traffic after 433.895µs
+    8:58PM DBG Starting to run query cloudtrail_log_files_not_encrypted_with_kms
+    8:58PM DBG Finished to run query cloudtrail_log_files_not_encrypted_with_kms after 55.017µs
+    8:58PM DBG Starting to run query ebs_volume_encryption_disabled
+    8:58PM DBG Finished to run query ebs_volume_encryption_disabled after 366.276µs
+    8:58PM DBG Starting to run query cloudtrail_logging_disabled
+    8:58PM DBG Finished to run query cloudtrail_logging_disabled after 90.725µs
+    8:58PM DBG Starting to run query ec2_group_has_public_interface
+    8:58PM DBG Finished to run query ec2_group_has_public_interface after 253.367µs
+    8:58PM DBG Starting to run query cloudtrail_multi_region_disabled
+    8:58PM DBG Finished to run query cloudtrail_multi_region_disabled after 60.381µs
+    8:58PM DBG Starting to run query ec2_instance_has_public_ip
+    8:58PM DBG Finished to run query ec2_instance_has_public_ip after 351.308µs
+    8:58PM DBG Starting to run query cloudtrail_not_integrated_with_cloudwatch
+    8:58PM DBG Finished to run query cloudtrail_not_integrated_with_cloudwatch after 72.73µs
+    8:58PM DBG Starting to run query ec2_instance_using_default_security_group
+    8:58PM DBG Finished to run query ec2_instance_using_default_security_group after 219.747µs
+    8:58PM DBG Starting to run query cloudtrail_sns_topic_name_undefined
+    8:58PM DBG Finished to run query cloudtrail_sns_topic_name_undefined after 118.699µs
+    8:58PM DBG Starting to run query ec2_instance_using_default_vpc
+    8:58PM DBG Finished to run query ec2_instance_using_default_vpc after 389.79µs
+    8:58PM DBG Starting to run query cloudwatch_logging_disabled
+    8:58PM DBG Finished to run query cloudwatch_logging_disabled after 94.768µs
+    8:58PM DBG Starting to run query ec2_not_ebs_optimized
+    8:58PM DBG Finished to run query ec2_not_ebs_optimized after 265.937µs
+    8:58PM DBG Starting to run query cloudwatch_metrics_disabled
+    8:58PM DBG Finished to run query cloudwatch_metrics_disabled after 65.614µs
+    8:58PM DBG Starting to run query ecr_image_tag_not_immutable
+    8:58PM DBG Finished to run query ecr_image_tag_not_immutable after 826.35µs
+    8:58PM DBG Starting to run query cmk_is_unusable
+    8:58PM DBG Finished to run query cmk_is_unusable after 96.465µs
+    8:58PM DBG Starting to run query ecr_repository_is_publicly_accessible
+    8:58PM DBG Finished to run query ecr_repository_is_publicly_accessible after 179.377µs
+    8:58PM DBG Starting to run query cmk_rotation_disabled
+    8:58PM DBG Finished to run query cmk_rotation_disabled after 62.344µs
+    8:58PM DBG Starting to run query ecs_service_admin_role_is_present
+    8:58PM DBG Finished to run query ecs_service_admin_role_is_present after 205.426µs
+    8:58PM DBG Starting to run query cmk_unencrypted_storage
+    8:58PM DBG Finished to run query cmk_unencrypted_storage after 70.524µs
+    8:58PM DBG Starting to run query ecs_service_without_running_tasks
+    8:58PM DBG Finished to run query ecs_service_without_running_tasks after 280.811µs
+    8:58PM DBG Starting to run query codebuild_not_encrypted
+    8:58PM DBG Finished to run query codebuild_not_encrypted after 63.72µs
+    8:58PM DBG Starting to run query ecs_task_definition_network_mode_not_recommended
+    8:58PM DBG Finished to run query ecs_task_definition_network_mode_not_recommended after 550.754µs
+    8:58PM DBG Starting to run query cognito_userpool_without_mfa
+    8:58PM DBG Finished to run query cognito_userpool_without_mfa after 126.038µs
+    8:58PM DBG Starting to run query ecs_task_definition_with_plaintext_password
+    8:58PM DBG Finished to run query ecs_task_definition_with_plaintext_password after 301.615µs
+    8:58PM DBG Starting to run query config_configuration_aggregator_to_all_regions_disabled
+    8:58PM DBG Finished to run query config_configuration_aggregator_to_all_regions_disabled after 56.554µs
+    8:58PM DBG Starting to run query efs_not_encrypted
+    8:58PM DBG Finished to run query efs_not_encrypted after 293.282µs
+    8:58PM DBG Starting to run query config_rule_for_encryption_volumes_disabled
+    8:58PM DBG Finished to run query config_rule_for_encryption_volumes_disabled after 112.446µs
+    8:58PM DBG Starting to run query efs_without_kms
+    8:58PM DBG Finished to run query efs_without_kms after 459.339µs
+    8:58PM DBG Starting to run query efs_without_tags
+    8:58PM DBG Finished to run query efs_without_tags after 344.354µs
+    8:58PM DBG Starting to run query connection_between_cloudfront_origin_not_encrypted
+    8:58PM DBG Finished to run query connection_between_cloudfront_origin_not_encrypted after 84.938µs
+    8:58PM DBG Starting to run query elasticache_using_default_port
+    8:58PM DBG Finished to run query elasticache_using_default_port after 327.561µs
+    8:58PM DBG Starting to run query cross_account_iam_assume_role_policy_without_external_id_or_mfa
+    8:58PM DBG Finished to run query cross_account_iam_assume_role_policy_without_external_id_or_mfa after 65.488µs
+    8:58PM DBG Starting to run query elasticache_without_vpc
+    8:58PM DBG Finished to run query elasticache_without_vpc after 266.473µs
+    8:58PM DBG Starting to run query db_instance_publicly_accessible
+    8:58PM DBG Finished to run query db_instance_publicly_accessible after 57.473µs
+    8:58PM DBG Starting to run query elasticsearch_with_https_disabled
+    8:58PM DBG Finished to run query elasticsearch_with_https_disabled after 365.191µs
+    8:58PM DBG Starting to run query db_security_group_open_to_large_scope
+    8:58PM DBG Finished to run query db_security_group_open_to_large_scope after 59.665µs
+    8:58PM DBG Starting to run query elb_using_insecure_protocols
+    8:58PM DBG Finished to run query elb_using_insecure_protocols after 712.57µs
+    8:58PM DBG Starting to run query db_security_group_with_public_scope
+    8:58PM DBG Finished to run query db_security_group_with_public_scope after 62.962µs
+    8:58PM DBG Starting to run query elb_using_weak_ciphers
+    8:58PM DBG Finished to run query elb_using_weak_ciphers after 615.648µs
+    8:58PM DBG Starting to run query default_kms_key_usage
+    8:58PM DBG Finished to run query default_kms_key_usage after 374.77µs
+    8:58PM DBG Starting to run query hardcoded_aws_access_key
+    8:58PM DBG Finished to run query hardcoded_aws_access_key after 238.916µs
+    8:58PM DBG Starting to run query default_security_groups_with_unrestricted_traffic
+    8:58PM DBG Finished to run query default_security_groups_with_unrestricted_traffic after 58.356µs
+    8:58PM DBG Starting to run query hardcoded_aws_access_key_in_lambda
+    8:58PM DBG Finished to run query hardcoded_aws_access_key_in_lambda after 269.018µs
+    8:58PM DBG Starting to run query directory_service_microsoft_ad_password_set_to_plaintext_or_default_ref
+    8:58PM DBG Finished to run query directory_service_microsoft_ad_password_set_to_plaintext_or_default_ref after 61.068µs
+    8:58PM DBG Starting to run query http_port_open_to_internet
+    8:58PM DBG Finished to run query http_port_open_to_internet after 1.478881ms
+    8:58PM DBG Starting to run query directory_service_simple_ad_password_exposed
+    8:58PM DBG Finished to run query directory_service_simple_ad_password_exposed after 65.039µs
+    8:58PM DBG Starting to run query iam_access_key_is_exposed
+    8:58PM DBG Finished to run query iam_access_key_is_exposed after 234.458µs
+    8:58PM DBG Starting to run query dms_endpoint_mongo_db_settings_password_exposed
+    8:58PM DBG Finished to run query dms_endpoint_mongo_db_settings_password_exposed after 62.98µs
+    8:58PM DBG Starting to run query iam_database_auth_not_enabled
+    8:58PM DBG Finished to run query iam_database_auth_not_enabled after 345.512µs
+    8:58PM DBG Starting to run query dms_endpoint_password_exposed
+    8:58PM DBG Finished to run query dms_endpoint_password_exposed after 121.332µs
+    8:58PM DBG Starting to run query iam_group_without_users
+    8:58PM DBG Finished to run query iam_group_without_users after 188.72µs
+    8:58PM DBG Starting to run query docdb_cluster_master_password_in_plaintext
+    8:58PM DBG Starting to run query iam_password_without_lowercase_letter
+    8:58PM DBG Finished to run query docdb_cluster_master_password_in_plaintext after 164.561µs
+    8:58PM DBG Finished to run query iam_password_without_lowercase_letter after 366.551µs
+    8:58PM DBG Starting to run query iam_password_without_minimum_length
+    8:58PM DBG Finished to run query iam_password_without_minimum_length after 225.439µs
+    8:58PM DBG Starting to run query dynamodb_table_not_encrypted
+    8:58PM DBG Finished to run query dynamodb_table_not_encrypted after 55.697µs
+    8:58PM DBG Starting to run query iam_password_without_number
+    8:58PM DBG Finished to run query iam_password_without_number after 407.587µs
+    8:58PM DBG Starting to run query dynamodb_with_aws_owned_cmk
+    8:58PM DBG Finished to run query dynamodb_with_aws_owned_cmk after 119.907µs
+    8:58PM DBG Starting to run query iam_password_without_uppercase_letter
+    8:58PM DBG Finished to run query iam_password_without_uppercase_letter after 366.211µs
+    8:58PM DBG Starting to run query dynamodb_with_table_billing_mode_not_recommended
+    8:58PM DBG Finished to run query dynamodb_with_table_billing_mode_not_recommended after 110.952µs
+    8:58PM DBG Starting to run query iam_policies_attached_to_user
+    8:58PM DBG Finished to run query iam_policies_attached_to_user after 388.917µs
+    8:58PM DBG Starting to run query ebs_volume_encryption_disabled
+    8:58PM DBG Finished to run query ebs_volume_encryption_disabled after 106.82µs
+    8:58PM DBG Starting to run query iam_policies_with_full_privileges
+    8:58PM DBG Finished to run query iam_policies_with_full_privileges after 403.889µs
+    8:58PM DBG Starting to run query ebs_volume_not_attached_to_instances
+    8:58PM DBG Finished to run query ebs_volume_not_attached_to_instances after 109.011µs
+    8:58PM DBG Starting to run query iam_policy_grants_assumerole_permission_across_all_services
+    8:58PM DBG Finished to run query iam_policy_grants_assumerole_permission_across_all_services after 366.967µs
+    8:58PM DBG Starting to run query ebs_volume_without_kms_key_id
+    8:58PM DBG Finished to run query ebs_volume_without_kms_key_id after 103.412µs
+    8:58PM DBG Starting to run query iam_policy_grants_full_permissions
+    8:58PM DBG Finished to run query iam_policy_grants_full_permissions after 355.48µs
+    8:58PM DBG Starting to run query ec2_instance_has_no_iam_role
+    8:58PM DBG Finished to run query ec2_instance_has_no_iam_role after 93.563µs
+    8:58PM DBG Starting to run query iam_role_allows_all_principals_to_assume
+    8:58PM DBG Finished to run query iam_role_allows_all_principals_to_assume after 512.616µs
+    8:58PM DBG Starting to run query ec2_instance_monitoring_disabled
+    8:58PM DBG Finished to run query ec2_instance_monitoring_disabled after 1.205593ms
+    8:58PM DBG Starting to run query instance_with_no_vpc
+    8:58PM DBG Finished to run query instance_with_no_vpc after 549.567µs
+    8:58PM DBG Starting to run query ec2_instance_subnet_has_public_ip_mapping_on_launch
+    8:58PM DBG Finished to run query ec2_instance_subnet_has_public_ip_mapping_on_launch after 37.79µs
+    8:58PM DBG Starting to run query kinesis_not_encrypted_with_kms
+    8:58PM DBG Finished to run query kinesis_not_encrypted_with_kms after 488.723µs
+    8:58PM DBG Starting to run query ec2_instance_using_default_security_group
+    8:58PM DBG Finished to run query ec2_instance_using_default_security_group after 39.145µs
+    8:58PM DBG Starting to run query kms_key_with_full_permissions
+    8:58PM DBG Finished to run query kms_key_with_full_permissions after 448.551µs
+    8:58PM DBG Starting to run query ec2_instance_using_default_vpc
+    8:58PM DBG Finished to run query ec2_instance_using_default_vpc after 131.814µs
+    8:58PM DBG Starting to run query lambda_function_without_tags
+    8:58PM DBG Finished to run query lambda_function_without_tags after 228.316µs
+    8:58PM DBG Starting to run query ec2_network_acl_duplicate_rule
+    8:58PM DBG Finished to run query ec2_network_acl_duplicate_rule after 164.38µs
+    8:58PM DBG Starting to run query lambda_functions_without_x-ray_tracing
+    8:58PM DBG Finished to run query lambda_functions_without_x-ray_tracing after 399.145µs
+    8:58PM DBG Starting to run query ec2_network_acl_ineffective_denied_traffic
+    8:58PM DBG Finished to run query ec2_network_acl_ineffective_denied_traffic after 59.054µs
+    8:58PM DBG Starting to run query lambda_permission_misconfigured
+    8:58PM DBG Finished to run query lambda_permission_misconfigured after 1.765194ms
+    8:58PM DBG Starting to run query lambda_permission_principal_is_wildcard
+    8:58PM DBG Finished to run query lambda_permission_principal_is_wildcard after 483.454µs
+    8:58PM DBG Starting to run query ec2_network_acl_overlapping_ports
+    8:58PM DBG Finished to run query ec2_network_acl_overlapping_ports after 117.454µs
+    8:58PM DBG Starting to run query launch_configuration_is_not_encrypted
+    8:58PM DBG Finished to run query launch_configuration_is_not_encrypted after 478.574µs
+    8:58PM DBG Starting to run query ec2_not_ebs_optimized
+    8:58PM DBG Finished to run query ec2_not_ebs_optimized after 195.168µs
+    8:58PM DBG Starting to run query memcached_disabled
+    8:58PM DBG Finished to run query memcached_disabled after 256.875µs
+    8:58PM DBG Starting to run query ec2_permissive_network_acl_protocols
+    8:58PM DBG Finished to run query ec2_permissive_network_acl_protocols after 77.8µs
+    8:58PM DBG Starting to run query misconfigured_password_policy_expiration
+    8:58PM DBG Finished to run query misconfigured_password_policy_expiration after 283.549µs
+    8:58PM DBG Starting to run query ec2_public_instance_exposed_through_subnet
+    8:58PM DBG Finished to run query ec2_public_instance_exposed_through_subnet after 86.262µs
+    8:58PM DBG Starting to run query no_stack_policy
+    8:58PM DBG Finished to run query no_stack_policy after 194.164µs
+    8:58PM DBG Starting to run query ec2_sensitive_port_is_publicly_exposed
+    8:58PM DBG Finished to run query ec2_sensitive_port_is_publicly_exposed after 64.063µs
+    8:58PM DBG Starting to run query password_without_reuse_prevention
+    8:58PM DBG Finished to run query password_without_reuse_prevention after 249.122µs
+    8:58PM DBG Starting to run query ecr_image_tag_not_immutable
+    8:58PM DBG Finished to run query ecr_image_tag_not_immutable after 68.749µs
+    8:58PM DBG Starting to run query public_lambda_via_api_gateway
+    8:58PM DBG Finished to run query public_lambda_via_api_gateway after 221.384µs
+    8:58PM DBG Starting to run query ecr_repository_is_publicly_accessible
+    8:58PM DBG Finished to run query ecr_repository_is_publicly_accessible after 61.311µs
+    8:58PM DBG Starting to run query public_port_wide
+    8:58PM DBG Finished to run query public_port_wide after 409.179µs
+    8:58PM DBG Starting to run query ecs_cluster_not_encrypted_at_rest
+    8:58PM DBG Finished to run query ecs_cluster_not_encrypted_at_rest after 61.883µs
+    8:58PM DBG Starting to run query rds_associated_with_public_subnet
+    8:58PM DBG Finished to run query rds_associated_with_public_subnet after 287.855µs
+    8:58PM DBG Starting to run query ecs_no_load_balancer_attached
+    8:58PM DBG Finished to run query ecs_no_load_balancer_attached after 61.772µs
+    8:58PM DBG Starting to run query rds_using_default_port
+    8:58PM DBG Finished to run query rds_using_default_port after 438.405µs
+    8:58PM DBG Starting to run query ecs_service_admin_role_is_present
+    8:58PM DBG Finished to run query ecs_service_admin_role_is_present after 58.902µs
+    8:58PM DBG Starting to run query rds_with_backup_disabled
+    8:58PM DBG Finished to run query rds_with_backup_disabled after 228.812µs
+    8:58PM DBG Starting to run query ecs_service_without_running_tasks
+    8:58PM DBG Finished to run query ecs_service_without_running_tasks after 61.618µs
+    8:58PM DBG Starting to run query redis_not_compliant
+    8:58PM DBG Finished to run query redis_not_compliant after 230.529µs
+    8:58PM DBG Starting to run query ecs_task_definition_healthcheck_missing
+    8:58PM DBG Finished to run query ecs_task_definition_healthcheck_missing after 72.383µs
+    8:58PM DBG Starting to run query redshift_not_encrypted
+    8:58PM DBG Finished to run query redshift_not_encrypted after 279.376µs
+    8:58PM DBG Starting to run query ecs_task_definition_invalid_cpu_or_memory
+    8:58PM DBG Finished to run query ecs_task_definition_invalid_cpu_or_memory after 67.736µs
+    8:58PM DBG Starting to run query redshift_publicly_accessible
+    8:58PM DBG Finished to run query redshift_publicly_accessible after 926.029µs
+    8:58PM DBG Starting to run query redshift_using_default_port
+    8:58PM DBG Finished to run query redshift_using_default_port after 186.237µs
+    8:58PM DBG Starting to run query ecs_task_definition_network_mode_not_recommended
+    8:58PM DBG Finished to run query ecs_task_definition_network_mode_not_recommended after 85.275µs
+    8:58PM DBG Starting to run query remote_desktop_port_open
+    8:58PM DBG Finished to run query remote_desktop_port_open after 221.751µs
+    8:58PM DBG Starting to run query ecs_task_definition_with_plaintext_password
+    8:58PM DBG Finished to run query ecs_task_definition_with_plaintext_password after 84.342µs
+    8:58PM DBG Starting to run query root_account_has_active_access_keys
+    8:58PM DBG Finished to run query root_account_has_active_access_keys after 249.827µs
+    8:58PM DBG Starting to run query efs_not_encrypted
+    8:58PM DBG Finished to run query efs_not_encrypted after 174.987µs
+    8:58PM DBG Starting to run query route53_record_undefined
+    8:58PM DBG Finished to run query route53_record_undefined after 286.927µs
+    8:58PM DBG Starting to run query efs_volume_with_disabled_transit_encryption
+    8:58PM DBG Finished to run query efs_volume_with_disabled_transit_encryption after 67.403µs
+    8:58PM DBG Starting to run query s3_bucket_access_to_any_principal
+    8:58PM DBG Finished to run query s3_bucket_access_to_any_principal after 440.709µs
+    8:58PM DBG Starting to run query efs_without_kms
+    8:58PM DBG Finished to run query efs_without_kms after 44.127µs
+    8:58PM DBG Starting to run query s3_bucket_acl_allows_read_to_all_users
+    8:58PM DBG Finished to run query s3_bucket_acl_allows_read_to_all_users after 447.768µs
+    8:58PM DBG Starting to run query efs_without_tags
+    8:58PM DBG Finished to run query efs_without_tags after 62.393µs
+    8:58PM DBG Starting to run query s3_bucket_acl_allows_read_to_any_authenticated_user
+    8:58PM DBG Finished to run query s3_bucket_acl_allows_read_to_any_authenticated_user after 380.23µs
+    8:58PM DBG Starting to run query eks_node_group_remote_access
+    8:58PM DBG Finished to run query eks_node_group_remote_access after 137.001µs
+    8:58PM DBG Starting to run query s3_bucket_allows_delete_action_from_all_principals
+    8:58PM DBG Finished to run query s3_bucket_allows_delete_action_from_all_principals after 398.383µs
+    8:58PM DBG Starting to run query elasticache_nodes_not_created_across_multi_az
+    8:58PM DBG Finished to run query elasticache_nodes_not_created_across_multi_az after 67.558µs
+    8:58PM DBG Starting to run query s3_bucket_allows_get_action_from_all_principals
+    8:58PM DBG Finished to run query s3_bucket_allows_get_action_from_all_principals after 181.863µs
+    8:58PM DBG Starting to run query elasticache_using_default_port
+    8:58PM DBG Finished to run query elasticache_using_default_port after 74.838µs
+    8:58PM DBG Starting to run query s3_bucket_allows_list_action_from_all_principals
+    8:58PM DBG Finished to run query s3_bucket_allows_list_action_from_all_principals after 183.778µs
+    8:58PM DBG Starting to run query elasticache_with_disabled_at_rest_encryption
+    8:58PM DBG Finished to run query elasticache_with_disabled_at_rest_encryption after 73.503µs
+    8:58PM DBG Starting to run query s3_bucket_allows_put_action_from_all_principals
+    8:58PM DBG Finished to run query s3_bucket_allows_put_action_from_all_principals after 299.475µs
+    8:58PM DBG Starting to run query elasticache_with_disabled_transit_encryption
+    8:58PM DBG Finished to run query elasticache_with_disabled_transit_encryption after 115.026µs
+    8:58PM DBG Starting to run query s3_bucket_logging_disabled
+    8:58PM DBG Finished to run query s3_bucket_logging_disabled after 341.06µs
+    8:58PM DBG Starting to run query elasticache_without_vpc
+    8:58PM DBG Finished to run query elasticache_without_vpc after 107.098µs
+    8:58PM DBG Starting to run query s3_bucket_sse_disabled
+    8:58PM DBG Finished to run query s3_bucket_sse_disabled after 257.252µs
+    8:58PM DBG Starting to run query elasticsearch_domain_encryption_with_kms_disabled
+    8:58PM DBG Finished to run query elasticsearch_domain_encryption_with_kms_disabled after 47.487µs
+    8:58PM DBG Starting to run query s3_bucket_with_all_permissions
+    8:58PM DBG Finished to run query s3_bucket_with_all_permissions after 283.482µs
+    8:58PM DBG Starting to run query s3_bucket_with_public_access
+    8:58PM DBG Finished to run query s3_bucket_with_public_access after 413.214µs
+    8:58PM DBG Starting to run query elasticsearch_logs_disabled
+    8:58PM DBG Finished to run query elasticsearch_logs_disabled after 176.392µs
+    8:58PM DBG Starting to run query s3_bucket_with_unsecured_cors_rule
+    8:58PM DBG Finished to run query s3_bucket_with_unsecured_cors_rule after 342.223µs
+    8:58PM DBG Starting to run query elasticsearch_not_encrypted_at_rest
+    8:58PM DBG Finished to run query elasticsearch_not_encrypted_at_rest after 62.236µs
+    8:58PM DBG Starting to run query s3_bucket_without_server-side_encryption
+    8:58PM DBG Finished to run query s3_bucket_without_server-side_encryption after 531.611µs
+    8:58PM DBG Starting to run query elasticsearch_with_https_disabled
+    8:58PM DBG Finished to run query elasticsearch_with_https_disabled after 99.914µs
+    8:58PM DBG Starting to run query s3_bucket_without_versioning
+    8:58PM DBG Finished to run query s3_bucket_without_versioning after 413.173µs
+    8:58PM DBG Starting to run query elasticsearch_without_iam_authentication
+    8:58PM DBG Finished to run query elasticsearch_without_iam_authentication after 109.983µs
+    8:58PM DBG Starting to run query secure_ciphers_disabled
+    8:58PM DBG Finished to run query secure_ciphers_disabled after 448.401µs
+    8:58PM DBG Starting to run query elasticsearch_without_slow_logs
+    8:58PM DBG Finished to run query elasticsearch_without_slow_logs after 117.359µs
+    8:58PM DBG Starting to run query security_group_ingress_not_restricted
+    8:58PM DBG Finished to run query security_group_ingress_not_restricted after 357.245µs
+    8:58PM DBG Starting to run query elb_access_log_disabled
+    8:58PM DBG Finished to run query elb_access_log_disabled after 84.541µs
+    8:58PM DBG Starting to run query security_group_with_unrestricted_access_to_ssh
+    8:58PM DBG Finished to run query security_group_with_unrestricted_access_to_ssh after 1.586903ms
+    8:58PM DBG Starting to run query elb_sensitive_port_is_exposed_to_entire_network
+    8:58PM DBG Finished to run query elb_sensitive_port_is_exposed_to_entire_network after 113.713µs
+    8:58PM DBG Starting to run query ses_policy_with_allowed_iam_actions
+    8:58PM DBG Finished to run query ses_policy_with_allowed_iam_actions after 430.586µs
+    8:58PM DBG Starting to run query elb_using_insecure_protocols
+    8:58PM DBG Finished to run query elb_using_insecure_protocols after 206.535µs
+    8:58PM DBG Starting to run query sns_topic_is_publicly_accessible
+    8:58PM DBG Finished to run query sns_topic_is_publicly_accessible after 223.886µs
+    8:58PM DBG Starting to run query sql_analysis_services_port_2383_is_publicly_accessible
+    8:58PM DBG Finished to run query sql_analysis_services_port_2383_is_publicly_accessible after 413.363µs
+    8:58PM DBG Starting to run query elb_using_weak_ciphers
+    8:58PM DBG Finished to run query elb_using_weak_ciphers after 116.813µs
+    8:58PM DBG Starting to run query sqs_policy_allows_all_actions
+    8:58PM DBG Finished to run query sqs_policy_allows_all_actions after 398.235µs
+    8:58PM DBG Starting to run query elb_v2_alb_access_log_disabled
+    8:58PM DBG Finished to run query elb_v2_alb_access_log_disabled after 94.701µs
+    8:58PM DBG Starting to run query sqs_policy_with_public_access
+    8:58PM DBG Finished to run query sqs_policy_with_public_access after 661.764µs
+    8:58PM DBG Starting to run query elb_with_security_group_without_inbound_rules
+    8:58PM DBG Finished to run query elb_with_security_group_without_inbound_rules after 108.65µs
+    8:58PM DBG Starting to run query sqs_queue_exposed
+    8:58PM DBG Finished to run query sqs_queue_exposed after 359.93µs
+    8:58PM DBG Starting to run query elb_with_security_group_without_outbound_rules
+    8:58PM DBG Finished to run query elb_with_security_group_without_outbound_rules after 95.965µs
+    8:58PM DBG Starting to run query sqs_with_sse_disabled
+    8:58PM DBG Finished to run query sqs_with_sse_disabled after 245.353µs
+    8:58PM DBG Starting to run query elb_without_secure_protocol
+    8:58PM DBG Finished to run query elb_without_secure_protocol after 63.615µs
+    8:58PM DBG Starting to run query stack_notifications_disabled
+    8:58PM DBG Finished to run query stack_notifications_disabled after 206.315µs
+    8:58PM DBG Starting to run query empty_roles_for_ecs_cluster_task_definitions
+    8:58PM DBG Finished to run query empty_roles_for_ecs_cluster_task_definitions after 63.06µs
+    8:58PM DBG Starting to run query stack_retention_disabled
+    8:58PM DBG Finished to run query stack_retention_disabled after 365.023µs
+    8:58PM DBG Starting to run query emr_cluster_without_security_configuration
+    8:58PM DBG Finished to run query emr_cluster_without_security_configuration after 86.955µs
+    8:58PM DBG Starting to run query stack_without_template
+    8:58PM DBG Finished to run query stack_without_template after 1.258217ms
+    8:58PM DBG Starting to run query emr_security_configuration_encryptions_enabled
+    8:58PM DBG Finished to run query emr_security_configuration_encryptions_enabled after 61.485µs
+    8:58PM DBG Starting to run query unknown_port_exposed_to_internet
+    8:58PM DBG Finished to run query unknown_port_exposed_to_internet after 399.365µs
+    8:58PM DBG Starting to run query emr_wihout_vpc
+    8:58PM DBG Finished to run query emr_wihout_vpc after 62.197µs
+    8:58PM DBG Starting to run query unrestricted_security_group_ingress
+    8:58PM DBG Finished to run query unrestricted_security_group_ingress after 201.545µs
+    8:58PM DBG Starting to run query fully_open_ingress
+    8:58PM DBG Finished to run query fully_open_ingress after 60.965µs
+    8:58PM DBG Starting to run query user_data_contains_encoded_private_key
+    8:58PM DBG Finished to run query user_data_contains_encoded_private_key after 352.784µs
+    8:58PM DBG Starting to run query gamelift_fleet_ec2_inbound_permissions_with_port_range
+    8:58PM DBG Finished to run query gamelift_fleet_ec2_inbound_permissions_with_port_range after 61.846µs
+    8:58PM DBG Starting to run query user_data_shell_script_is_encoded
+    8:58PM DBG Finished to run query user_data_shell_script_is_encoded after 212.705µs
+    8:58PM DBG Starting to run query geo_restriction_disabled
+    8:58PM DBG Finished to run query geo_restriction_disabled after 108.402µs
+    8:58PM DBG Starting to run query viewer_protocol_policy_allows_http
+    8:58PM DBG Finished to run query viewer_protocol_policy_allows_http after 234.555µs
+    8:58PM DBG Starting to run query vulnerable_default_ssl_certificate
+    8:58PM DBG Finished to run query vulnerable_default_ssl_certificate after 344.327µs
+    8:58PM DBG Starting to run query github_repository_set_to_public
+    8:58PM DBG Finished to run query github_repository_set_to_public after 67.861µs
+    8:58PM DBG Starting to run query ad_admin_not_configured_for_sql_server
+    8:58PM DBG Finished to run query ad_admin_not_configured_for_sql_server after 181.406µs
+    8:58PM DBG Starting to run query guardduty_detector_disabled
+    8:58PM DBG Finished to run query guardduty_detector_disabled after 116.868µs
+    8:58PM DBG Starting to run query admin_user_enabled_for_container_registry
+    8:58PM DBG Finished to run query admin_user_enabled_for_container_registry after 290.493µs
+    8:58PM DBG Starting to run query hardcoded_aws_access_key_in_lambda
+    8:58PM DBG Finished to run query hardcoded_aws_access_key_in_lambda after 65.5µs
+    8:58PM DBG Starting to run query aks_monitoring_logging_disabled
+    8:58PM DBG Finished to run query aks_monitoring_logging_disabled after 302.9µs
+    8:58PM DBG Starting to run query http_port_open
+    8:58PM DBG Finished to run query http_port_open after 150.198µs
+    8:58PM DBG Starting to run query aks_network_policy_misconfigured
+    8:58PM DBG Finished to run query aks_network_policy_misconfigured after 361.045µs
+    8:58PM DBG Starting to run query iam_access_analyzer_not_enabled
+    8:58PM DBG Finished to run query iam_access_analyzer_not_enabled after 223.344µs
+    8:58PM DBG Starting to run query aks_rbac_disabled
+    8:58PM DBG Finished to run query aks_rbac_disabled after 366.575µs
+    8:58PM DBG Starting to run query iam_database_auth_not_enabled
+    8:58PM DBG Finished to run query iam_database_auth_not_enabled after 57.231µs
+    8:58PM DBG Starting to run query azure_container_registry_with_no_locks
+    8:58PM DBG Finished to run query azure_container_registry_with_no_locks after 181.046µs
+    8:58PM DBG Starting to run query iam_group_without_users
+    8:58PM DBG Finished to run query iam_group_without_users after 67.768µs
+    8:58PM DBG Starting to run query azure_instance_using_basic_authentication
+    8:58PM DBG Finished to run query azure_instance_using_basic_authentication after 71.66µs
+    8:58PM DBG Starting to run query iam_groups_inline_policies
+    8:58PM DBG Finished to run query iam_groups_inline_policies after 66.797µs
+    8:58PM DBG Starting to run query cosmosdb_account_ip_range_filter_not_set
+    8:58PM DBG Finished to run query cosmosdb_account_ip_range_filter_not_set after 289.334µs
+    8:58PM DBG Starting to run query iam_managed_policy_applied_to_a_user
+    8:58PM DBG Finished to run query iam_managed_policy_applied_to_a_user after 63.05µs
+    8:58PM DBG Starting to run query cosmosdb_account_without_tags
+    8:58PM DBG Finished to run query cosmosdb_account_without_tags after 225.207µs
+    8:58PM DBG Starting to run query iam_password_without_lowercase_letter
+    8:58PM DBG Finished to run query iam_password_without_lowercase_letter after 61.876µs
+    8:58PM DBG Starting to run query default_azure_storage_account_network_access_is_too_permissive
+    8:58PM DBG Finished to run query default_azure_storage_account_network_access_is_too_permissive after 521.996µs
+    8:58PM DBG Starting to run query iam_password_without_minimum_length
+    8:58PM DBG Finished to run query iam_password_without_minimum_length after 64.521µs
+    8:58PM DBG Starting to run query firewall_rule_allows_too_many_hosts_to_access_redis_cache
+    8:58PM DBG Finished to run query firewall_rule_allows_too_many_hosts_to_access_redis_cache after 322.637µs
+    8:58PM DBG Starting to run query iam_password_without_number
+    8:58PM DBG Finished to run query iam_password_without_number after 56.988µs
+    8:58PM DBG Starting to run query key_vault_soft_delete_is_disabled
+    8:58PM DBG Finished to run query key_vault_soft_delete_is_disabled after 476.479µs
+    8:58PM DBG Starting to run query iam_password_without_symbol
+    8:58PM DBG Finished to run query iam_password_without_symbol after 62.383µs
+    8:58PM DBG Starting to run query log_retention_is_not_set
+    8:58PM DBG Finished to run query log_retention_is_not_set after 234.316µs
+    8:58PM DBG Starting to run query monitoring_log_profile_without_all_activities
+    8:58PM DBG Starting to run query iam_password_without_uppercase_letter
+    8:58PM DBG Finished to run query iam_password_without_uppercase_letter after 116.143µs
+    8:58PM DBG Finished to run query monitoring_log_profile_without_all_activities after 469.446µs
+    8:58PM DBG Starting to run query mysql_ssl_connection_disabled
+    8:58PM DBG Finished to run query mysql_ssl_connection_disabled after 209.037µs
+    8:58PM DBG Starting to run query iam_policies_attached_to_user
+    8:58PM DBG Finished to run query iam_policies_attached_to_user after 159.262µs
+    8:58PM DBG Starting to run query postgre_sql_log_checkpoints_disabled
+    8:58PM DBG Finished to run query postgre_sql_log_checkpoints_disabled after 382.355µs
+    8:58PM DBG Starting to run query iam_policies_with_full_privileges
+    8:58PM DBG Finished to run query iam_policies_with_full_privileges after 152.322µs
+    8:58PM DBG Starting to run query postgre_sql_log_connections_not_set
+    8:58PM DBG Finished to run query postgre_sql_log_connections_not_set after 308.307µs
+    8:58PM DBG Starting to run query iam_policies_without_groups
+    8:58PM DBG Finished to run query iam_policies_without_groups after 73.936µs
+    8:58PM DBG Starting to run query postgre_sql_log_duration_not_set
+    8:58PM DBG Finished to run query postgre_sql_log_duration_not_set after 817.305µs
+    8:58PM DBG Starting to run query iam_policy_grants_assumerole_permission_across_all_services
+    8:58PM DBG Finished to run query iam_policy_grants_assumerole_permission_across_all_services after 123.526µs
+    8:58PM DBG Starting to run query postgre_sql_server_without_connection_throttling
+    8:58PM DBG Finished to run query postgre_sql_server_without_connection_throttling after 211.635µs
+    8:58PM DBG Starting to run query iam_policy_grants_full_permissions
+    8:58PM DBG Finished to run query iam_policy_grants_full_permissions after 54.929µs
+    8:58PM DBG Starting to run query postgresql_log_disconnections_not_set
+    8:58PM DBG Finished to run query postgresql_log_disconnections_not_set after 375.859µs
+    8:58PM DBG Starting to run query iam_policy_on_user
+    8:58PM DBG Finished to run query iam_policy_on_user after 59.727µs
+    8:58PM DBG Starting to run query public_storage_account
+    8:58PM DBG Finished to run query public_storage_account after 280.272µs
+    8:58PM DBG Starting to run query iam_role_allows_all_principals_to_assume
+    8:58PM DBG Finished to run query iam_role_allows_all_principals_to_assume after 58.164µs
+    8:58PM DBG Starting to run query redis_cache_allows_non_ssl_connections
+    8:58PM DBG Finished to run query redis_cache_allows_non_ssl_connections after 224.902µs
+    8:58PM DBG Starting to run query iam_user_login_profile_password_is_in_plaintext
+    8:58PM DBG Finished to run query iam_user_login_profile_password_is_in_plaintext after 93.575µs
+    8:58PM DBG Starting to run query redis_entirely_accessible
+    8:58PM DBG Finished to run query redis_entirely_accessible after 233.335µs
+    8:58PM DBG Starting to run query iam_user_too_many_access_keys
+    8:58PM DBG Finished to run query iam_user_too_many_access_keys after 136.531µs
+    8:58PM DBG Starting to run query redis_publicly_accessible
+    8:58PM DBG Finished to run query redis_publicly_accessible after 208.826µs
+    8:58PM DBG Starting to run query iam_user_with_no_group
+    8:58PM DBG Finished to run query iam_user_with_no_group after 124.431µs
+    8:58PM DBG Starting to run query role_definition_allows_custom_role_creation
+    8:58PM DBG Finished to run query role_definition_allows_custom_role_creation after 431.709µs
+    8:58PM DBG Starting to run query inline_policies_are_attached_to_ecs_service
+    8:58PM DBG Finished to run query inline_policies_are_attached_to_ecs_service after 64.101µs
+    8:58PM DBG Starting to run query security_group_is_not_configured
+    8:58PM DBG Finished to run query security_group_is_not_configured after 197.004µs
+    8:58PM DBG Starting to run query instance_with_no_vpc
+    8:58PM DBG Finished to run query instance_with_no_vpc after 105.147µs
+    8:58PM DBG Starting to run query sensitive_port_is_exposed_to_entire_network
+    8:58PM DBG Finished to run query sensitive_port_is_exposed_to_entire_network after 350.369µs
+    8:58PM DBG Starting to run query iot_policy_allows_action_as_wildcard
+    8:58PM DBG Finished to run query iot_policy_allows_action_as_wildcard after 48.24µs
+    8:58PM DBG Starting to run query small_activity_log_retention_period
+    8:58PM DBG Finished to run query small_activity_log_retention_period after 553.068µs
+    8:58PM DBG Starting to run query iot_policy_allows_wildcard_resource
+    8:58PM DBG Finished to run query iot_policy_allows_wildcard_resource after 99.379µs
+    8:58PM DBG Starting to run query sql_server_ingress_from_any_ip
+    8:58PM DBG Finished to run query sql_server_ingress_from_any_ip after 381.025µs
+    8:58PM DBG Starting to run query sql_server_predictable_active_directory_admin_account_name
+    8:58PM DBG Finished to run query sql_server_predictable_active_directory_admin_account_name after 359.527µs
+    8:58PM DBG Starting to run query kinesis_sse_not_configured
+    8:58PM DBG Finished to run query kinesis_sse_not_configured after 114.114µs
+    8:58PM DBG Starting to run query sql_server_predictable_admin_account_name
+    8:58PM DBG Finished to run query sql_server_predictable_admin_account_name after 471.52µs
+    8:58PM DBG Starting to run query kms_allows_wildcard_principal
+    8:58PM DBG Finished to run query kms_allows_wildcard_principal after 129.951µs
+    8:58PM DBG Starting to run query ssl_enforce_is_disabled
+    8:58PM DBG Finished to run query ssl_enforce_is_disabled after 296.263µs
+    8:58PM DBG Starting to run query kms_enable_key_rotation_disabled
+    8:58PM DBG Finished to run query kms_enable_key_rotation_disabled after 161.569µs
+    8:58PM DBG Starting to run query storage_account_not_forcing_https
+    8:58PM DBG Finished to run query storage_account_not_forcing_https after 222.986µs
+    8:58PM DBG Starting to run query kms_key_with_full_permissions
+    8:58PM DBG Finished to run query kms_key_with_full_permissions after 62.863µs
+    8:58PM DBG Starting to run query storage_account_not_using_latest_tls_encryption_version
+    8:58PM DBG Finished to run query storage_account_not_using_latest_tls_encryption_version after 289.8µs
+    8:58PM DBG Starting to run query lambda_function_without_dead_letter_queue
+    8:58PM DBG Finished to run query lambda_function_without_dead_letter_queue after 59.384µs
+    8:58PM DBG Starting to run query storage_container_is_publicly_accessible
+    8:58PM DBG Finished to run query storage_container_is_publicly_accessible after 278.985µs
+    8:58PM DBG Starting to run query lambda_function_without_tags
+    8:58PM DBG Finished to run query lambda_function_without_tags after 72.528µs
+    8:58PM DBG Starting to run query trusted_microsoft_services_not_enabled
+    8:58PM DBG Finished to run query trusted_microsoft_services_not_enabled after 202.939µs
+    8:58PM DBG Starting to run query lambda_functions_with_full_privileges
+    8:58PM DBG Finished to run query lambda_functions_with_full_privileges after 64.198µs
+    8:58PM DBG Starting to run query unrestricted_sql_server_acess
+    8:58PM DBG Finished to run query unrestricted_sql_server_acess after 288.947µs
+    8:58PM DBG Starting to run query lambda_functions_without_unique_iam_roles
+    8:58PM DBG Finished to run query lambda_functions_without_unique_iam_roles after 62.175µs
+    8:58PM DBG Starting to run query vm_not_attached_to_network
+    8:58PM DBG Finished to run query vm_not_attached_to_network after 257.073µs
+    8:58PM DBG Starting to run query lambda_functions_without_x-ray_tracing
+    8:58PM DBG Finished to run query lambda_functions_without_x-ray_tracing after 143.217µs
+    8:58PM DBG Starting to run query waf_is_disabled_for_azure_application_gateway
+    8:58PM DBG Finished to run query waf_is_disabled_for_azure_application_gateway after 228.582µs
+    8:58PM DBG Starting to run query lambda_permission_misconfigured
+    8:58PM DBG Finished to run query lambda_permission_misconfigured after 81.562µs
+    8:58PM DBG Starting to run query web_app_accepting_traffic_other_than_https
+    8:58PM DBG Finished to run query web_app_accepting_traffic_other_than_https after 239.797µs
+    8:58PM DBG Starting to run query lambda_permission_principal_is_wildcard
+    8:58PM DBG Finished to run query lambda_permission_principal_is_wildcard after 60.62µs
+    8:58PM DBG Starting to run query bigquery_dataset_is_public
+    8:58PM DBG Finished to run query bigquery_dataset_is_public after 299.482µs
+    8:58PM DBG Starting to run query low_rds_backup_retention_period
+    8:58PM DBG Finished to run query low_rds_backup_retention_period after 63.029µs
+    8:58PM DBG Starting to run query client_certificate_disabled
+    8:58PM DBG Finished to run query client_certificate_disabled after 858.873µs
+    8:58PM DBG Starting to run query memcached_disabled
+    8:58PM DBG Finished to run query memcached_disabled after 62.254µs
+    8:58PM DBG Starting to run query cloud_dns_without_dnnsec
+    8:58PM DBG Finished to run query cloud_dns_without_dnnsec after 343.881µs
+    8:58PM DBG Starting to run query cloud_sql_instance_with_contained_database_authentication_on
+    8:58PM DBG Finished to run query cloud_sql_instance_with_contained_database_authentication_on after 230.457µs
+    8:58PM DBG Starting to run query mq_broker_is_publicly_accessible
+    8:58PM DBG Finished to run query mq_broker_is_publicly_accessible after 90.142µs
+    8:58PM DBG Starting to run query cloud_sql_instance_with_cross_db_ownership_chaining_on
+    8:58PM DBG Finished to run query cloud_sql_instance_with_cross_db_ownership_chaining_on after 378.333µs
+    8:58PM DBG Starting to run query mq_broker_logging_disabled
+    8:58PM DBG Finished to run query mq_broker_logging_disabled after 167.524µs
+    8:58PM DBG Starting to run query cloud_storage_anonymous_or_publicly_accessible
+    8:58PM DBG Finished to run query cloud_storage_anonymous_or_publicly_accessible after 462.99µs
+    8:58PM DBG Starting to run query msk_broker_is_publicly_accessible
+    8:58PM DBG Finished to run query msk_broker_is_publicly_accessible after 104.043µs
+    8:58PM DBG Starting to run query cloud_storage_bucket_logging_not_enabled
+    8:58PM DBG Finished to run query cloud_storage_bucket_logging_not_enabled after 344.735µs
+    8:58PM DBG Starting to run query msk_cluster_encryption_disabled
+    8:58PM DBG Finished to run query msk_cluster_encryption_disabled after 92.386µs
+    8:58PM DBG Starting to run query cloud_storage_bucket_versioning_disabled
+    8:58PM DBG Finished to run query cloud_storage_bucket_versioning_disabled after 280.846µs
+    8:58PM DBG Starting to run query msk_cluster_logging_disabled
+    8:58PM DBG Finished to run query msk_cluster_logging_disabled after 118.21µs
+    8:58PM DBG Starting to run query cluster_labels_disabled
+    8:58PM DBG Finished to run query cluster_labels_disabled after 306.133µs
+    8:58PM DBG Starting to run query neptune_cluster_with_iam_database_authentication_disabled
+    8:58PM DBG Finished to run query neptune_cluster_with_iam_database_authentication_disabled after 88.958µs
+    8:58PM DBG Starting to run query cluster_master_authentication_disabled
+    8:58PM DBG Finished to run query cluster_master_authentication_disabled after 527.429µs
+    8:58PM DBG Starting to run query neptune_database_cluster_encryption_disabled
+    8:58PM DBG Finished to run query neptune_database_cluster_encryption_disabled after 82.945µs
+    8:58PM DBG Starting to run query compute_instance_is_publicly_accessible
+    8:58PM DBG Finished to run query compute_instance_is_publicly_accessible after 345.312µs
+    8:58PM DBG Starting to run query public_lambda_via_api_gateway
+    8:58PM DBG Finished to run query public_lambda_via_api_gateway after 119.489µs
+    8:58PM DBG Starting to run query cos_node_image_not_used
+    8:58PM DBG Finished to run query cos_node_image_not_used after 336.238µs
+    8:58PM DBG Starting to run query rds_associated_with_public_subnet
+    8:58PM DBG Finished to run query rds_associated_with_public_subnet after 61.578µs
+    8:58PM DBG Starting to run query disk_encryption_disabled
+    8:58PM DBG Finished to run query disk_encryption_disabled after 247.034µs
+    8:58PM DBG Starting to run query rds_db_instance_with_deletion_protection_disabled
+    8:58PM DBG Finished to run query rds_db_instance_with_deletion_protection_disabled after 152.797µs
+    8:58PM DBG Starting to run query dnssec_using_rsasha1
+    8:58PM DBG Finished to run query dnssec_using_rsasha1 after 349.202µs
+    8:58PM DBG Starting to run query rds_multi_az_deployment_disabled
+    8:58PM DBG Finished to run query rds_multi_az_deployment_disabled after 115.415µs
+    8:58PM DBG Starting to run query gke_basic_authentication_enabled
+    8:58PM DBG Finished to run query gke_basic_authentication_enabled after 437.94µs
+    8:58PM DBG Starting to run query rds_storage_encryption_disabled
+    8:58PM DBG Finished to run query rds_storage_encryption_disabled after 119.289µs
+    8:58PM DBG Starting to run query gke_legacy_authorization_enabled
+    8:58PM DBG Finished to run query gke_legacy_authorization_enabled after 430.982µs
+    8:58PM DBG Starting to run query gke_master_authorized_networks_disabled
+    8:58PM DBG Finished to run query gke_master_authorized_networks_disabled after 447.34µs
+    8:58PM DBG Starting to run query rds_storage_not_encrypted
+    8:58PM DBG Finished to run query rds_storage_not_encrypted after 36.377µs
+    8:58PM DBG Starting to run query gke_using_default_service_account
+    8:58PM DBG Finished to run query gke_using_default_service_account after 460.864µs
+    8:58PM DBG Starting to run query rds_using_default_port
+    8:58PM DBG Finished to run query rds_using_default_port after 76.743µs
+    8:58PM DBG Starting to run query google_compute_network_using_default_firewall_rule
+    8:58PM DBG Finished to run query google_compute_network_using_default_firewall_rule after 353.493µs
+    8:58PM DBG Starting to run query rds_with_backup_disabled
+    8:58PM DBG Finished to run query rds_with_backup_disabled after 233.695µs
+    8:58PM DBG Starting to run query google_compute_network_using_firewall_allows_port_range
+    8:58PM DBG Finished to run query google_compute_network_using_firewall_allows_port_range after 375.104µs
+    8:58PM DBG Starting to run query redshift_cluster_logging_disabled
+    8:58PM DBG Finished to run query redshift_cluster_logging_disabled after 53.195µs
+    8:58PM DBG Starting to run query google_compute_network_using_firewall_rule_allows_all_ports
+    8:58PM DBG Finished to run query google_compute_network_using_firewall_rule_allows_all_ports after 277.221µs
+    8:58PM DBG Starting to run query redshift_cluster_without_kms_cmk
+    8:58PM DBG Finished to run query redshift_cluster_without_kms_cmk after 178.853µs
+    8:58PM DBG Starting to run query google_compute_ssl_policy_weak_cipher_in_use
+    8:58PM DBG Finished to run query google_compute_ssl_policy_weak_cipher_in_use after 428.676µs
+    8:58PM DBG Starting to run query redshift_not_encrypted
+    8:58PM DBG Finished to run query redshift_not_encrypted after 58.513µs
+    8:58PM DBG Starting to run query google_compute_subnetwork_with_private_google_access_disabled
+    8:58PM DBG Finished to run query google_compute_subnetwork_with_private_google_access_disabled after 406.488µs
+    8:58PM DBG Starting to run query redshift_publicly_accessible
+    8:58PM DBG Finished to run query redshift_publicly_accessible after 84.999µs
+    8:58PM DBG Starting to run query google_container_node_pool_auto_repair_disabled
+    8:58PM DBG Finished to run query google_container_node_pool_auto_repair_disabled after 583.781µs
+    8:58PM DBG Starting to run query redshift_using_default_port
+    8:58PM DBG Finished to run query redshift_using_default_port after 111.142µs
+    8:58PM DBG Starting to run query high_google_kms_crypto_key_rotation_period
+    8:58PM DBG Finished to run query high_google_kms_crypto_key_rotation_period after 298.96µs
+    8:58PM DBG Starting to run query refresh_token_is_exposed
+    8:58PM DBG Finished to run query refresh_token_is_exposed after 59.751µs
+    8:58PM DBG Starting to run query ip_aliasing_disabled
+    8:58PM DBG Finished to run query ip_aliasing_disabled after 309.928µs
+    8:58PM DBG Starting to run query remote_desktop_port_open_to_internet
+    8:58PM DBG Finished to run query remote_desktop_port_open_to_internet after 58.309µs
+    8:58PM DBG Starting to run query ip_forwarding_enabled
+    8:58PM DBG Finished to run query ip_forwarding_enabled after 244.116µs
+    8:58PM DBG Starting to run query root_account_has_active_access_keys
+    8:58PM DBG Finished to run query root_account_has_active_access_keys after 169.344µs
+    8:58PM DBG Starting to run query mysql_instance_with_local_infile_on
+    8:58PM DBG Finished to run query mysql_instance_with_local_infile_on after 275.588µs
+    8:58PM DBG Starting to run query route53_record_undefined
+    8:58PM DBG Finished to run query route53_record_undefined after 112.995µs
+    8:58PM DBG Starting to run query network_policy_disabled
+    8:58PM DBG Finished to run query network_policy_disabled after 573.158µs
+    8:58PM DBG Starting to run query routertable_with_default_routing
+    8:58PM DBG Finished to run query routertable_with_default_routing after 85.95µs
+    8:58PM DBG Starting to run query node_auto_upgrade_disabled
+    8:58PM DBG Finished to run query node_auto_upgrade_disabled after 445.833µs
+    8:58PM DBG Starting to run query s3_bucket_access_to_any_principal
+    8:58PM DBG Finished to run query s3_bucket_access_to_any_principal after 100.078µs
+    8:58PM DBG Starting to run query oslogin_is_disabled_for_vm_instance
+    8:58PM DBG Finished to run query oslogin_is_disabled_for_vm_instance after 473.551µs
+    8:58PM DBG Starting to run query s3_bucket_acl_allows_read_or_write_to_all_users
+    8:58PM DBG Finished to run query s3_bucket_acl_allows_read_or_write_to_all_users after 108.836µs
+    8:58PM DBG Starting to run query postgresql_log_checkpoints_flag_not_set_to_on
+    8:58PM DBG Finished to run query postgresql_log_checkpoints_flag_not_set_to_on after 339.901µs
+    8:58PM DBG Starting to run query s3_bucket_acl_allows_read_to_all_users
+    8:58PM DBG Starting to run query postgresql_log_connections_disabled
+    8:58PM DBG Finished to run query s3_bucket_acl_allows_read_to_all_users after 97.942µs
+    8:58PM DBG Finished to run query postgresql_log_connections_disabled after 350.588µs
+    8:58PM DBG Starting to run query postgresql_logging_of_temporary_files_disabled
+    8:58PM DBG Finished to run query postgresql_logging_of_temporary_files_disabled after 239.858µs
+    8:58PM DBG Starting to run query s3_bucket_acl_allows_read_to_any_authenticated_user
+    8:58PM DBG Finished to run query s3_bucket_acl_allows_read_to_any_authenticated_user after 61.942µs
+    8:58PM DBG Starting to run query postgresql_misconfigured_log_messages_flag
+    8:58PM DBG Finished to run query postgresql_misconfigured_log_messages_flag after 221.718µs
+    8:58PM DBG Starting to run query s3_bucket_allows_delete_actions_from_all_principals
+    8:58PM DBG Finished to run query s3_bucket_allows_delete_actions_from_all_principals after 88.064µs
+    8:58PM DBG Starting to run query postgresql_misconfigured_logging_duration_flag
+    8:58PM DBG Finished to run query postgresql_misconfigured_logging_duration_flag after 273.564µs
+    8:58PM DBG Starting to run query s3_bucket_allows_get_actions_from_all_principals
+    8:58PM DBG Finished to run query s3_bucket_allows_get_actions_from_all_principals after 97.463µs
+    8:58PM DBG Starting to run query private_cluster_disabled
+    8:58PM DBG Finished to run query private_cluster_disabled after 402.408µs
+    8:58PM DBG Starting to run query s3_bucket_allows_list_actions_from_all_principals
+    8:58PM DBG Finished to run query s3_bucket_allows_list_actions_from_all_principals after 80.439µs
+    8:58PM DBG Starting to run query project_wide_ssh_keys_are_enabled_in_vm_instances
+    8:58PM DBG Finished to run query project_wide_ssh_keys_are_enabled_in_vm_instances after 231.588µs
+    8:58PM DBG Starting to run query s3_bucket_allows_public_acl
+    8:58PM DBG Finished to run query s3_bucket_allows_public_acl after 122.335µs
+    8:58PM DBG Starting to run query rdp_access_is_not_restricted
+    8:58PM DBG Finished to run query rdp_access_is_not_restricted after 279.798µs
+    8:58PM DBG Starting to run query s3_bucket_allows_put_actions_from_all_principals
+    8:58PM DBG Finished to run query s3_bucket_allows_put_actions_from_all_principals after 102.952µs
+    8:58PM DBG Starting to run query serial_ports_enabled_for_vm_instances
+    8:58PM DBG Finished to run query serial_ports_enabled_for_vm_instances after 248.129µs
+    8:58PM DBG Starting to run query s3_bucket_allows_restore_actions_from_all_principals
+    8:58PM DBG Finished to run query s3_bucket_allows_restore_actions_from_all_principals after 92.824µs
+    8:58PM DBG Starting to run query shielded_vm_disabled
+    8:58PM DBG Finished to run query shielded_vm_disabled after 237.99µs
+    8:58PM DBG Starting to run query s3_bucket_cloudtrail_logging_disabled
+    8:58PM DBG Finished to run query s3_bucket_cloudtrail_logging_disabled after 64.566µs
+    8:58PM DBG Starting to run query sql_db_instance_backup_disabled
+    8:58PM DBG Finished to run query sql_db_instance_backup_disabled after 281.532µs
+    8:58PM DBG Starting to run query s3_bucket_logging_disabled
+    8:58PM DBG Finished to run query s3_bucket_logging_disabled after 101.851µs
+    8:58PM DBG Starting to run query sql_db_instance_is_publicly_accessible
+    8:58PM DBG Finished to run query sql_db_instance_is_publicly_accessible after 841.137µs
+    8:58PM DBG Starting to run query s3_bucket_should_have_bucket_policy
+    8:58PM DBG Finished to run query s3_bucket_should_have_bucket_policy after 60.642µs
+    8:58PM DBG Starting to run query sql_db_instance_with_ssl_disabled
+    8:58PM DBG Finished to run query sql_db_instance_with_ssl_disabled after 320.653µs
+    8:58PM DBG Starting to run query s3_bucket_sse_disabled
+    8:58PM DBG Finished to run query s3_bucket_sse_disabled after 55.942µs
+    8:58PM DBG Starting to run query ssh_access_is_not_restricted
+    8:58PM DBG Finished to run query ssh_access_is_not_restricted after 341.284µs
+    8:58PM DBG Starting to run query s3_bucket_with_all_permissions
+    8:58PM DBG Finished to run query s3_bucket_with_all_permissions after 57.628µs
+    8:58PM DBG Starting to run query stackdriver_logging_disabled
+    8:58PM DBG Finished to run query stackdriver_logging_disabled after 256.113µs
+    8:58PM DBG Starting to run query stackdriver_monitoring_disabled
+    8:58PM DBG Finished to run query stackdriver_monitoring_disabled after 394.75µs
+    8:58PM DBG Starting to run query s3_bucket_with_public_policy
+    8:58PM DBG Finished to run query s3_bucket_with_public_policy after 67.109µs
+    8:58PM DBG Starting to run query using_default_service_account
+    8:58PM DBG Finished to run query using_default_service_account after 689.922µs
+    8:58PM DBG Starting to run query s3_bucket_with_unsecured_cors_rule
+    8:58PM DBG Finished to run query s3_bucket_with_unsecured_cors_rule after 105.853µs
+    8:58PM DBG Starting to run query vm_with_full_cloud_access
+    8:58PM DBG Finished to run query vm_with_full_cloud_access after 182.628µs
+    8:58PM DBG Starting to run query s3_bucket_without_ignore_public_acl
+    8:58PM DBG Finished to run query s3_bucket_without_ignore_public_acl after 56.161µs
+    8:58PM DBG Starting to run query access_key_not_rotated_within_90_days
+    8:58PM DBG Finished to run query access_key_not_rotated_within_90_days after 71.096µs
+    8:58PM DBG Starting to run query s3_bucket_without_restriction_of_public_bucket
+    8:58PM DBG Finished to run query s3_bucket_without_restriction_of_public_bucket after 56.468µs
+    8:58PM DBG Starting to run query alb_is_not_integrated_with_waf
+    8:58PM DBG Finished to run query alb_is_not_integrated_with_waf after 61.513µs
+    8:58PM DBG Starting to run query s3_bucket_without_server_side_encryption
+    8:58PM DBG Finished to run query s3_bucket_without_server_side_encryption after 82.824µs
+    8:58PM DBG Starting to run query alb_listening_on_http
+    8:58PM DBG Finished to run query alb_listening_on_http after 64.582µs
+    8:58PM DBG Starting to run query s3_bucket_without_ssl_in_write_actions
+    8:58PM DBG Finished to run query s3_bucket_without_ssl_in_write_actions after 82.978µs
+    8:58PM DBG Starting to run query alexa_skill_plaintext_client_secret_exposed
+    8:58PM DBG Finished to run query alexa_skill_plaintext_client_secret_exposed after 94.329µs
+    8:58PM DBG Starting to run query s3_bucket_without_versioning
+    8:58PM DBG Finished to run query s3_bucket_without_versioning after 63.406µs
+    8:58PM DBG Starting to run query amazon_dms_replication_instance_is_publicly_accessible
+    8:58PM DBG Finished to run query amazon_dms_replication_instance_is_publicly_accessible after 107.696µs
+    8:58PM DBG Starting to run query s3_static_website_host_enabled
+    8:58PM DBG Finished to run query s3_static_website_host_enabled after 78.831µs
+    8:58PM DBG Starting to run query amazon_mq_broker_encryption_disabled
+    8:58PM DBG Finished to run query amazon_mq_broker_encryption_disabled after 65.261µs
+    8:58PM DBG Starting to run query sagemaker_data_encryption_disabled
+    8:58PM DBG Finished to run query sagemaker_data_encryption_disabled after 45.76µs
+    8:58PM DBG Starting to run query amplify_app_access_token_exposed
+    8:58PM DBG Finished to run query amplify_app_access_token_exposed after 69.523µs
+    8:58PM DBG Starting to run query sagemaker_enabling_internet_access
+    8:58PM DBG Finished to run query sagemaker_enabling_internet_access after 56.617µs
+    8:58PM DBG Starting to run query amplify_app_basic_auth_config_password_exposed
+    8:58PM DBG Finished to run query amplify_app_basic_auth_config_password_exposed after 69.407µs
+    8:58PM DBG Starting to run query sagemaker_endpoint_config_should_specify_kms_key_id_attribute
+    8:58PM DBG Finished to run query sagemaker_endpoint_config_should_specify_kms_key_id_attribute after 60.797µs
+    8:58PM DBG Starting to run query amplify_app_oauth_token_exposed
+    8:58PM DBG Finished to run query amplify_app_oauth_token_exposed after 70.624µs
+    8:58PM DBG Starting to run query sagemaker_notebook_not_placed_in_vpc
+    8:58PM DBG Finished to run query sagemaker_notebook_not_placed_in_vpc after 54.279µs
+    8:58PM DBG Starting to run query amplify_branch_basic_auth_config_password_exposed
+    8:58PM DBG Finished to run query amplify_branch_basic_auth_config_password_exposed after 99.592µs
+    8:58PM DBG Starting to run query sdb_domain_declared_as_a_resource
+    8:58PM DBG Finished to run query sdb_domain_declared_as_a_resource after 95.735µs
+    8:58PM DBG Starting to run query secrets_manager_should_specify_kms_key_id
+    8:58PM DBG Finished to run query secrets_manager_should_specify_kms_key_id after 35.499µs
+    8:58PM DBG Starting to run query api_gateway_cache_cluster_disabled
+    8:58PM DBG Finished to run query api_gateway_cache_cluster_disabled after 78.952µs
+    8:58PM DBG Starting to run query secure_ciphers_disabled
+    8:58PM DBG Finished to run query secure_ciphers_disabled after 110.345µs
+    8:58PM DBG Starting to run query api_gateway_cache_encrypted_disabled
+    8:58PM DBG Finished to run query api_gateway_cache_encrypted_disabled after 164.172µs
+    8:58PM DBG Starting to run query api_gateway_deployment_without_access_log_setting
+    8:58PM DBG Starting to run query security_group_egress_cidr_open_to_world
+    8:58PM DBG Finished to run query api_gateway_deployment_without_access_log_setting after 48.697µs
+    8:58PM DBG Finished to run query security_group_egress_cidr_open_to_world after 41.74µs
+    8:58PM DBG Starting to run query api_gateway_deployment_without_api_gateway_usage_plan_associated
+    8:58PM DBG Finished to run query api_gateway_deployment_without_api_gateway_usage_plan_associated after 73.335µs
+    8:58PM DBG Starting to run query security_group_egress_with_all_protocols
+    8:58PM DBG Finished to run query security_group_egress_with_all_protocols after 42.687µs
+    8:58PM DBG Starting to run query security_group_egress_with_port_range
+    8:58PM DBG Finished to run query security_group_egress_with_port_range after 108.285µs
+    8:58PM DBG Starting to run query api_gateway_endpoint_config_is_not_private
+    8:58PM DBG Finished to run query api_gateway_endpoint_config_is_not_private after 295.365µs
+    8:58PM DBG Starting to run query api_gateway_method_does_not_contains_an_api_key
+    8:58PM DBG Finished to run query api_gateway_method_does_not_contains_an_api_key after 137.209µs
+    8:58PM DBG Starting to run query security_group_ingress_has_cidr_not_recommended
+    8:58PM DBG Finished to run query security_group_ingress_has_cidr_not_recommended after 113.55µs
+    8:58PM DBG Starting to run query security_group_ingress_with_all_protocols
+    8:58PM DBG Finished to run query security_group_ingress_with_all_protocols after 65.424µs
+    8:58PM DBG Starting to run query api_gateway_stage_access_logging_settings_not_defined
+    8:58PM DBG Finished to run query api_gateway_stage_access_logging_settings_not_defined after 92.029µs
+    8:58PM DBG Starting to run query security_group_ingress_with_port_range
+    8:58PM DBG Finished to run query security_group_ingress_with_port_range after 138.245µs
+    8:58PM DBG Starting to run query api_gateway_stage_without_api_gateway_usage_plan_associated
+    8:58PM DBG Finished to run query api_gateway_stage_without_api_gateway_usage_plan_associated after 84.164µs
+    8:58PM DBG Starting to run query security_group_rule_without_description
+    8:58PM DBG Finished to run query security_group_rule_without_description after 63.181µs
+    8:58PM DBG Starting to run query api_gateway_with_invalid_compression
+    8:58PM DBG Finished to run query api_gateway_with_invalid_compression after 300.952µs
+    8:58PM DBG Starting to run query security_groups_allows_unrestricted_outbound_traffic
+    8:58PM DBG Finished to run query security_groups_allows_unrestricted_outbound_traffic after 120.708µs
+    8:58PM DBG Starting to run query api_gateway_with_open_access
+    8:58PM DBG Finished to run query api_gateway_with_open_access after 41.845µs
+    8:58PM DBG Starting to run query security_groups_unrestricted_access_to_rdp
+    8:58PM DBG Finished to run query security_groups_unrestricted_access_to_rdp after 106.108µs
+    8:58PM DBG Starting to run query api_gateway_without_configured_authorizer
+    8:58PM DBG Finished to run query api_gateway_without_configured_authorizer after 138.989µs
+    8:58PM DBG Starting to run query security_groups_with_exhibited_admin_ports
+    8:58PM DBG Finished to run query security_groups_with_exhibited_admin_ports after 113.896µs
+    8:58PM DBG Starting to run query api_gateway_without_security_policy
+    8:58PM DBG Finished to run query api_gateway_without_security_policy after 61.508µs
+    8:58PM DBG Starting to run query security_groups_with_meta_ip
+    8:58PM DBG Finished to run query security_groups_with_meta_ip after 101.726µs
+    8:58PM DBG Starting to run query api_gateway_without_ssl_certificate
+    8:58PM DBG Finished to run query api_gateway_without_ssl_certificate after 83.84µs
+    8:58PM DBG Starting to run query security_groups_with_unrestricted_access_to_ssh
+    8:58PM DBG Finished to run query security_groups_with_unrestricted_access_to_ssh after 227.53µs
+    8:58PM DBG Starting to run query api_gateway_without_waf
+    8:58PM DBG Finished to run query api_gateway_without_waf after 34.257µs
+    8:58PM DBG Starting to run query security_groups_without_vpc_attached
+    8:58PM DBG Finished to run query security_groups_without_vpc_attached after 187.009µs
+    8:58PM DBG Starting to run query api_gateway_xray_disabled
+    8:58PM DBG Finished to run query api_gateway_xray_disabled after 128.12µs
+    8:58PM DBG Starting to run query shield_advanced_not_in_use
+    8:58PM DBG Finished to run query shield_advanced_not_in_use after 112.842µs
+    8:58PM DBG Starting to run query auto_scaling_group_with_no_associated_elb
+    8:58PM DBG Finished to run query auto_scaling_group_with_no_associated_elb after 114.149µs
+    8:58PM DBG Starting to run query sns_topic_is_publicly_accessible
+    8:58PM DBG Finished to run query sns_topic_is_publicly_accessible after 110.209µs
+    8:58PM DBG Starting to run query automatic_minor_upgrades_disabled
+    8:58PM DBG Finished to run query automatic_minor_upgrades_disabled after 361.685µs
+    8:58PM DBG Starting to run query sns_topic_publicity_has_allow_and_not_action_simultaneously
+    8:58PM DBG Finished to run query sns_topic_publicity_has_allow_and_not_action_simultaneously after 143.503µs
+    8:58PM DBG Starting to run query batch_job_definition_with_privileged_container_properties
+    8:58PM DBG Finished to run query batch_job_definition_with_privileged_container_properties after 98.651µs
+    8:58PM DBG Starting to run query sns_topic_without_kms_master_key_id
+    8:58PM DBG Finished to run query sns_topic_without_kms_master_key_id after 61.272µs
+    8:58PM DBG Starting to run query cdn_configuration_is_missing
+    8:58PM DBG Finished to run query cdn_configuration_is_missing after 240.4µs
+    8:58PM DBG Starting to run query sqs_policy_with_public_access
+    8:58PM DBG Finished to run query sqs_policy_with_public_access after 143.864µs
+    8:58PM DBG Starting to run query cloudformation_specifying_credentials_not_safe
+    8:58PM DBG Finished to run query cloudformation_specifying_credentials_not_safe after 84.122µs
+    8:58PM DBG Starting to run query sqs_queue_policy_allows_not_action
+    8:58PM DBG Finished to run query sqs_queue_policy_allows_not_action after 90.911µs
+    8:58PM DBG Starting to run query cloudfront_logging_disabled
+    8:58PM DBG Finished to run query cloudfront_logging_disabled after 187.182µs
+    8:58PM DBG Starting to run query sqs_queue_policy_allows_not_principal
+    8:58PM DBG Finished to run query sqs_queue_policy_allows_not_principal after 63.71µs
+    8:58PM DBG Starting to run query cloudfront_viewer_protocol_policy_allows_http
+    8:58PM DBG Finished to run query cloudfront_viewer_protocol_policy_allows_http after 59.965µs
+    8:58PM DBG Starting to run query sqs_with_sse_disabled
+    8:58PM DBG Finished to run query sqs_with_sse_disabled after 89.384µs
+    8:58PM DBG Starting to run query cloudfront_without_minimum_protocol_tls_1.2
+    8:58PM DBG Finished to run query cloudfront_without_minimum_protocol_tls_1.2 after 247.211µs
+    8:58PM DBG Starting to run query stack_notifications_disabled
+    8:58PM DBG Finished to run query stack_notifications_disabled after 59.703µs
+    8:58PM DBG Starting to run query cloudfront_without_waf
+    8:58PM DBG Finished to run query cloudfront_without_waf after 175.961µs
+    8:58PM DBG Starting to run query stack_retention_disabled
+    8:58PM DBG Finished to run query stack_retention_disabled after 148.271µs
+    8:58PM DBG Starting to run query cloudtrail_log_file_validation_disabled
+    8:58PM DBG Finished to run query cloudtrail_log_file_validation_disabled after 65.121µs
+    8:58PM DBG Starting to run query support_has_no_role_associated
+    8:58PM DBG Finished to run query support_has_no_role_associated after 70.058µs
+    8:58PM DBG Starting to run query cloudtrail_log_files_not_encrypted_with_kms
+    8:58PM DBG Finished to run query cloudtrail_log_files_not_encrypted_with_kms after 67.063µs
+    8:58PM DBG Starting to run query tcp_or_udp_protocol_network_acl_entry_allows_all_ports
+    8:58PM DBG Finished to run query tcp_or_udp_protocol_network_acl_entry_allows_all_ports after 111.216µs
+    8:58PM DBG Starting to run query cloudtrail_logging_disabled
+    8:58PM DBG Finished to run query cloudtrail_logging_disabled after 85.151µs
+    8:58PM DBG Starting to run query unknown_port_exposed_to_internet
+    8:58PM DBG Finished to run query unknown_port_exposed_to_internet after 68.931µs
+    8:58PM DBG Starting to run query cloudtrail_multi_region_disabled
+    8:58PM DBG Finished to run query cloudtrail_multi_region_disabled after 72.236µs
+    8:58PM DBG Starting to run query cloudtrail_not_integrated_with_cloudwatch
+    8:58PM DBG Finished to run query cloudtrail_not_integrated_with_cloudwatch after 62.472µs
+    8:58PM DBG Starting to run query unrestricted_security_group_ingress
+    8:58PM DBG Finished to run query unrestricted_security_group_ingress after 149.306µs
+    8:58PM DBG Starting to run query cloudtrail_sns_topic_name_undefined
+    8:58PM DBG Finished to run query cloudtrail_sns_topic_name_undefined after 64.052µs
+    8:58PM DBG Starting to run query unscanned_ecr_image
+    8:58PM DBG Finished to run query unscanned_ecr_image after 75.189µs
+    8:58PM DBG Starting to run query cloudwatch_logging_disabled
+    8:58PM DBG Finished to run query cloudwatch_logging_disabled after 64.909µs
+    8:58PM DBG Starting to run query user_data_contains_encoded_private_key
+    8:58PM DBG Finished to run query user_data_contains_encoded_private_key after 89.821µs
+    8:58PM DBG Starting to run query cloudwatch_metrics_disabled
+    8:58PM DBG Finished to run query cloudwatch_metrics_disabled after 117.006µs
+    8:58PM DBG Starting to run query user_data_shell_script_is_encoded
+    8:58PM DBG Finished to run query user_data_shell_script_is_encoded after 101.469µs
+    8:58PM DBG Starting to run query cmk_is_unusable
+    8:58PM DBG Finished to run query cmk_is_unusable after 65.15µs
+    8:58PM DBG Starting to run query user_iam_missing_password_reset_required
+    8:58PM DBG Finished to run query user_iam_missing_password_reset_required after 84.134µs
+    8:58PM DBG Starting to run query cmk_rotation_disabled
+    8:58PM DBG Finished to run query cmk_rotation_disabled after 60.286µs
+    8:58PM DBG Starting to run query vpc_attached_with_too_many_gateways
+    8:58PM DBG Finished to run query vpc_attached_with_too_many_gateways after 66.809µs
+    8:58PM DBG Starting to run query cmk_unencrypted_storage
+    8:58PM DBG Finished to run query cmk_unencrypted_storage after 85.886µs
+    8:58PM DBG Starting to run query vpc_flowlogs_disabled
+    8:58PM DBG Finished to run query vpc_flowlogs_disabled after 68.889µs
+    8:58PM DBG Starting to run query codebuild_not_encrypted
+    8:58PM DBG Finished to run query codebuild_not_encrypted after 71.212µs
+    8:58PM DBG Starting to run query vpc_without_attached_subnet
+    8:58PM DBG Finished to run query vpc_without_attached_subnet after 93.556µs
+    8:58PM DBG Starting to run query cognito_userpool_without_mfa
+    8:58PM DBG Finished to run query cognito_userpool_without_mfa after 84.169µs
+    8:58PM DBG Starting to run query vpc_without_network_firewall
+    8:58PM DBG Finished to run query vpc_without_network_firewall after 270.979µs
+    8:58PM DBG Starting to run query config_configuration_aggregator_to_all_regions_disabled
+    8:58PM DBG Finished to run query config_configuration_aggregator_to_all_regions_disabled after 72.985µs
+    8:58PM DBG Starting to run query vulnerable_default_ssl_certificate
+    8:58PM DBG Finished to run query vulnerable_default_ssl_certificate after 153.105µs
+    8:58PM DBG Starting to run query config_rule_for_encryption_volumes_disabled
+    8:58PM DBG Finished to run query config_rule_for_encryption_volumes_disabled after 158.992µs
+    8:58PM DBG Starting to run query webacl_allow_defaultaction
+    8:58PM DBG Finished to run query webacl_allow_defaultaction after 46.191µs
+    8:58PM DBG Starting to run query wildcard_in_acm_certificate_domain_name
+    8:58PM DBG Finished to run query wildcard_in_acm_certificate_domain_name after 63.205µs
+    8:58PM DBG Starting to run query connection_between_cloudfront_origin_not_encrypted
+    8:58PM DBG Finished to run query connection_between_cloudfront_origin_not_encrypted after 59.81µs
+    8:58PM DBG Starting to run query workspace_without_encryption
+    8:58PM DBG Finished to run query workspace_without_encryption after 226.668µs
+    8:58PM DBG Starting to run query cross_account_iam_assume_role_policy_without_external_id_or_mfa
+    8:58PM DBG Finished to run query cross_account_iam_assume_role_policy_without_external_id_or_mfa after 229.922µs
+    8:58PM DBG Starting to run query serverless_api_access_logging_setting_undefined
+    8:58PM DBG Finished to run query serverless_api_access_logging_setting_undefined after 65.274µs
+    8:58PM DBG Starting to run query db_instance_publicly_accessible
+    8:58PM DBG Finished to run query db_instance_publicly_accessible after 239.081µs
+    8:58PM DBG Starting to run query serverless_api_cache_cluster_disabled
+    8:58PM DBG Finished to run query serverless_api_cache_cluster_disabled after 63.378µs
+    8:58PM DBG Starting to run query db_security_group_open_to_large_scope
+    8:58PM DBG Finished to run query db_security_group_open_to_large_scope after 592.21µs
+    8:58PM DBG Starting to run query serverless_api_endpoint_config_not_private
+    8:58PM DBG Finished to run query serverless_api_endpoint_config_not_private after 154.114µs
+    8:58PM DBG Starting to run query db_security_group_with_public_scope
+    8:58PM DBG Finished to run query db_security_group_with_public_scope after 171.305µs
+    8:58PM DBG Starting to run query serverless_api_without_content_encoding
+    8:58PM DBG Finished to run query serverless_api_without_content_encoding after 65.737µs
+    8:58PM DBG Starting to run query default_kms_key_usage
+    8:58PM DBG Finished to run query default_kms_key_usage after 63.619µs
+    8:58PM DBG Starting to run query serverless_api_xray_tracing_disabled
+    8:58PM DBG Finished to run query serverless_api_xray_tracing_disabled after 63.7µs
+    8:58PM DBG Starting to run query default_security_groups_with_unrestricted_traffic
+    8:58PM DBG Finished to run query default_security_groups_with_unrestricted_traffic after 284.159µs
+    8:58PM DBG Starting to run query serverless_function_environment_variables_not_encrypted
+    8:58PM DBG Finished to run query serverless_function_environment_variables_not_encrypted after 63µs
+    8:58PM DBG Starting to run query directory_service_microsoft_ad_password_set_to_plaintext_or_default_ref
+    8:58PM DBG Finished to run query directory_service_microsoft_ad_password_set_to_plaintext_or_default_ref after 85.448µs
+    8:58PM DBG Starting to run query serverless_function_without_dead_letter_queue
+    8:58PM DBG Finished to run query serverless_function_without_dead_letter_queue after 81.201µs
+    8:58PM DBG Starting to run query directory_service_simple_ad_password_exposed
+    8:58PM DBG Finished to run query directory_service_simple_ad_password_exposed after 141.098µs
+    8:58PM DBG Starting to run query serverless_function_without_tags
+    8:58PM DBG Finished to run query serverless_function_without_tags after 66.197µs
+    8:58PM DBG Starting to run query dms_endpoint_mongo_db_settings_password_exposed
+    8:58PM DBG Finished to run query dms_endpoint_mongo_db_settings_password_exposed after 68.056µs
+    8:58PM DBG Starting to run query serverless_function_without_unique_iam_role
+    8:58PM DBG Finished to run query serverless_function_without_unique_iam_role after 95.458µs
+    8:58PM DBG Starting to run query dms_endpoint_password_exposed
+    8:58PM DBG Finished to run query dms_endpoint_password_exposed after 151.376µs
+    8:58PM DBG Starting to run query serverless_function_without_x-ray_tracing
+    8:58PM DBG Finished to run query serverless_function_without_x-ray_tracing after 65.152µs
+    8:58PM DBG Starting to run query docdb_cluster_master_password_in_plaintext
+    8:58PM DBG Finished to run query docdb_cluster_master_password_in_plaintext after 77.994µs
+    8:58PM DBG Starting to run query dynamodb_table_not_encrypted
+    8:58PM DBG Finished to run query dynamodb_table_not_encrypted after 117.227µs
+    8:58PM DBG Starting to run query dynamodb_with_aws_owned_cmk
+    8:58PM DBG Finished to run query dynamodb_with_aws_owned_cmk after 78.383µs
+    8:58PM DBG Starting to run query dynamodb_with_table_billing_mode_not_recommended
+    8:58PM DBG Finished to run query dynamodb_with_table_billing_mode_not_recommended after 97.031µs
+    8:58PM DBG Starting to run query ebs_volume_encryption_disabled
+    8:58PM DBG Finished to run query ebs_volume_encryption_disabled after 131.557µs
+    8:58PM DBG Starting to run query ebs_volume_not_attached_to_instances
+    8:58PM DBG Finished to run query ebs_volume_not_attached_to_instances after 88.952µs
+    8:58PM DBG Starting to run query ebs_volume_without_kms_key_id
+    8:58PM DBG Finished to run query ebs_volume_without_kms_key_id after 98.688µs
+    8:58PM DBG Starting to run query ec2_instance_has_no_iam_role
+    8:58PM DBG Finished to run query ec2_instance_has_no_iam_role after 81.684µs
+    8:58PM DBG Starting to run query ec2_instance_monitoring_disabled
+    8:58PM DBG Finished to run query ec2_instance_monitoring_disabled after 68.768µs
+    8:58PM DBG Starting to run query ec2_instance_subnet_has_public_ip_mapping_on_launch
+    8:58PM DBG Finished to run query ec2_instance_subnet_has_public_ip_mapping_on_launch after 197.963µs
+    8:58PM DBG Starting to run query ec2_instance_using_default_security_group
+    8:58PM DBG Finished to run query ec2_instance_using_default_security_group after 229.24µs
+    8:58PM DBG Starting to run query ec2_instance_using_default_vpc
+    8:58PM DBG Finished to run query ec2_instance_using_default_vpc after 53.423µs
+    8:58PM DBG Starting to run query ec2_network_acl_duplicate_rule
+    8:58PM DBG Finished to run query ec2_network_acl_duplicate_rule after 68.091µs
+    8:58PM DBG Starting to run query ec2_network_acl_ineffective_denied_traffic
+    8:58PM DBG Finished to run query ec2_network_acl_ineffective_denied_traffic after 91.633µs
+    8:58PM DBG Starting to run query ec2_network_acl_overlapping_ports
+    8:58PM DBG Finished to run query ec2_network_acl_overlapping_ports after 68.15µs
+    8:58PM DBG Starting to run query ec2_not_ebs_optimized
+    8:58PM DBG Finished to run query ec2_not_ebs_optimized after 68.663µs
+    8:58PM DBG Starting to run query ec2_permissive_network_acl_protocols
+    8:58PM DBG Finished to run query ec2_permissive_network_acl_protocols after 116.203µs
+    8:58PM DBG Starting to run query ec2_public_instance_exposed_through_subnet
+    8:58PM DBG Finished to run query ec2_public_instance_exposed_through_subnet after 63.657µs
+    8:58PM DBG Starting to run query ec2_sensitive_port_is_publicly_exposed
+    8:58PM DBG Finished to run query ec2_sensitive_port_is_publicly_exposed after 91.851µs
+    8:58PM DBG Starting to run query ecr_image_tag_not_immutable
+    8:58PM DBG Finished to run query ecr_image_tag_not_immutable after 107.45µs
+    8:58PM DBG Starting to run query ecr_repository_is_publicly_accessible
+    8:58PM DBG Finished to run query ecr_repository_is_publicly_accessible after 86.096µs
+    8:58PM DBG Starting to run query ecs_cluster_not_encrypted_at_rest
+    8:58PM DBG Finished to run query ecs_cluster_not_encrypted_at_rest after 96.827µs
+    8:58PM DBG Starting to run query ecs_no_load_balancer_attached
+    8:58PM DBG Finished to run query ecs_no_load_balancer_attached after 62.297µs
+    8:58PM DBG Starting to run query ecs_service_admin_role_is_present
+    8:58PM DBG Finished to run query ecs_service_admin_role_is_present after 164.379µs
+    8:58PM DBG Starting to run query ecs_service_without_running_tasks
+    8:58PM DBG Finished to run query ecs_service_without_running_tasks after 94.57µs
+    8:58PM DBG Starting to run query ecs_task_definition_healthcheck_missing
+    8:58PM DBG Finished to run query ecs_task_definition_healthcheck_missing after 95.867µs
+    8:58PM DBG Starting to run query ecs_task_definition_invalid_cpu_or_memory
+    8:58PM DBG Finished to run query ecs_task_definition_invalid_cpu_or_memory after 70.312µs
+    8:58PM DBG Starting to run query ecs_task_definition_network_mode_not_recommended
+    8:58PM DBG Finished to run query ecs_task_definition_network_mode_not_recommended after 88.908µs
+    8:58PM DBG Starting to run query ecs_task_definition_with_plaintext_password
+    8:58PM DBG Finished to run query ecs_task_definition_with_plaintext_password after 129.604µs
+    8:58PM DBG Starting to run query efs_not_encrypted
+    8:58PM DBG Finished to run query efs_not_encrypted after 59.877µs
+    8:58PM DBG Starting to run query efs_volume_with_disabled_transit_encryption
+    8:58PM DBG Finished to run query efs_volume_with_disabled_transit_encryption after 86.929µs
+    8:58PM DBG Starting to run query efs_without_kms
+    8:58PM DBG Finished to run query efs_without_kms after 62.6µs
+    8:58PM DBG Starting to run query efs_without_tags
+    8:58PM DBG Finished to run query efs_without_tags after 61.43µs
+    8:58PM DBG Starting to run query eks_node_group_remote_access
+    8:58PM DBG Finished to run query eks_node_group_remote_access after 205.946µs
+    8:58PM DBG Starting to run query elasticache_nodes_not_created_across_multi_az
+    8:58PM DBG Finished to run query elasticache_nodes_not_created_across_multi_az after 64.053µs
+    8:58PM DBG Starting to run query elasticache_using_default_port
+    8:58PM DBG Finished to run query elasticache_using_default_port after 59.354µs
+    8:58PM DBG Starting to run query elasticache_with_disabled_at_rest_encryption
+    8:58PM DBG Finished to run query elasticache_with_disabled_at_rest_encryption after 67.181µs
+    8:58PM DBG Starting to run query elasticache_with_disabled_transit_encryption
+    8:58PM DBG Finished to run query elasticache_with_disabled_transit_encryption after 72.183µs
+    8:58PM DBG Starting to run query elasticache_without_vpc
+    8:58PM DBG Finished to run query elasticache_without_vpc after 61.001µs
+    8:58PM DBG Starting to run query elasticsearch_domain_encryption_with_kms_disabled
+    8:58PM DBG Finished to run query elasticsearch_domain_encryption_with_kms_disabled after 265.591µs
+    8:58PM DBG Starting to run query elasticsearch_logs_disabled
+    8:58PM DBG Finished to run query elasticsearch_logs_disabled after 191.293µs
+    8:58PM DBG Starting to run query elasticsearch_not_encrypted_at_rest
+    8:58PM DBG Finished to run query elasticsearch_not_encrypted_at_rest after 322.051µs
+    8:58PM DBG Starting to run query elasticsearch_with_https_disabled
+    8:58PM DBG Finished to run query elasticsearch_with_https_disabled after 610.451µs
+    8:58PM DBG Starting to run query elasticsearch_without_iam_authentication
+    8:58PM DBG Finished to run query elasticsearch_without_iam_authentication after 127.383µs
+    8:58PM DBG Starting to run query elasticsearch_without_slow_logs
+    8:58PM DBG Finished to run query elasticsearch_without_slow_logs after 434.678µs
+    8:58PM DBG Starting to run query elb_access_log_disabled
+    8:58PM DBG Finished to run query elb_access_log_disabled after 143.303µs
+    8:58PM DBG Starting to run query elb_sensitive_port_is_exposed_to_entire_network
+    8:58PM DBG Finished to run query elb_sensitive_port_is_exposed_to_entire_network after 223.592µs
+    8:58PM DBG Starting to run query elb_using_insecure_protocols
+    8:58PM DBG Finished to run query elb_using_insecure_protocols after 119.958µs
+    8:58PM DBG Starting to run query elb_using_weak_ciphers
+    8:58PM DBG Finished to run query elb_using_weak_ciphers after 96.712µs
+    8:58PM DBG Starting to run query elb_v2_alb_access_log_disabled
+    8:58PM DBG Finished to run query elb_v2_alb_access_log_disabled after 100.087µs
+    8:58PM DBG Starting to run query elb_with_security_group_without_inbound_rules
+    8:58PM DBG Finished to run query elb_with_security_group_without_inbound_rules after 115.806µs
+    8:58PM DBG Starting to run query elb_with_security_group_without_outbound_rules
+    8:58PM DBG Finished to run query elb_with_security_group_without_outbound_rules after 118.995µs
+    8:58PM DBG Starting to run query elb_without_secure_protocol
+    8:58PM DBG Finished to run query elb_without_secure_protocol after 70.443µs
+    8:58PM DBG Starting to run query empty_roles_for_ecs_cluster_task_definitions
+    8:58PM DBG Finished to run query empty_roles_for_ecs_cluster_task_definitions after 106.984µs
+    8:58PM DBG Starting to run query emr_cluster_without_security_configuration
+    8:58PM DBG Finished to run query emr_cluster_without_security_configuration after 95.517µs
+    8:58PM DBG Starting to run query emr_security_configuration_encryptions_enabled
+    8:58PM DBG Finished to run query emr_security_configuration_encryptions_enabled after 105.603µs
+    8:58PM DBG Starting to run query emr_wihout_vpc
+    8:58PM DBG Finished to run query emr_wihout_vpc after 80.668µs
+    8:58PM DBG Starting to run query fully_open_ingress
+    8:58PM DBG Finished to run query fully_open_ingress after 80.467µs
+    8:58PM DBG Starting to run query gamelift_fleet_ec2_inbound_permissions_with_port_range
+    8:58PM DBG Finished to run query gamelift_fleet_ec2_inbound_permissions_with_port_range after 74.14µs
+    8:58PM DBG Starting to run query geo_restriction_disabled
+    8:58PM DBG Finished to run query geo_restriction_disabled after 115.733µs
+    8:58PM DBG Starting to run query github_repository_set_to_public
+    8:58PM DBG Finished to run query github_repository_set_to_public after 75.915µs
+    8:58PM DBG Starting to run query guardduty_detector_disabled
+    8:58PM DBG Finished to run query guardduty_detector_disabled after 65.923µs
+    8:58PM DBG Starting to run query hardcoded_aws_access_key_in_lambda
+    8:58PM DBG Finished to run query hardcoded_aws_access_key_in_lambda after 76.938µs
+    8:58PM DBG Starting to run query http_port_open
+    8:58PM DBG Finished to run query http_port_open after 157.898µs
+    8:58PM DBG Starting to run query iam_access_analyzer_not_enabled
+    8:58PM WRN Failed to detect line, query response Resources fileName=/workspace/test-role-1/tasks/main.yml queryName=iam_access_analyzer_not_enabled scanID=console
+    8:58PM WRN Failed to detect line, query response Resources fileName=/workspace/test-role-1/tasks/main.yml queryName=iam_access_analyzer_not_enabled scanID=console
+    8:58PM WRN Failed to detect line, query response Resources fileName=/workspace/test-role-1/vars/main.yml queryName=iam_access_analyzer_not_enabled scanID=console
+    8:58PM WRN Failed to detect line, query response Resources fileName=/workspace/test-role-1/vars/main.yml queryName=iam_access_analyzer_not_enabled scanID=console
+    8:58PM DBG Finished to run query iam_access_analyzer_not_enabled after 855.37µs
+    8:58PM DBG Starting to run query iam_database_auth_not_enabled
+    8:58PM DBG Finished to run query iam_database_auth_not_enabled after 187.158µs
+    8:58PM DBG Starting to run query iam_group_without_users
+    8:58PM DBG Finished to run query iam_group_without_users after 59.075µs
+    8:58PM DBG Starting to run query iam_groups_inline_policies
+    8:58PM DBG Finished to run query iam_groups_inline_policies after 87.495µs
+    8:58PM DBG Starting to run query iam_managed_policy_applied_to_a_user
+    8:58PM DBG Finished to run query iam_managed_policy_applied_to_a_user after 57.521µs
+    8:58PM DBG Starting to run query iam_password_without_lowercase_letter
+    8:58PM DBG Finished to run query iam_password_without_lowercase_letter after 59.899µs
+    8:58PM DBG Starting to run query iam_password_without_minimum_length
+    8:58PM DBG Finished to run query iam_password_without_minimum_length after 58.763µs
+    8:58PM DBG Starting to run query iam_password_without_number
+    8:58PM DBG Finished to run query iam_password_without_number after 86.167µs
+    8:58PM DBG Starting to run query iam_password_without_symbol
+    8:58PM DBG Finished to run query iam_password_without_symbol after 295.45µs
+    8:58PM DBG Starting to run query iam_password_without_uppercase_letter
+    8:58PM DBG Finished to run query iam_password_without_uppercase_letter after 82.697µs
+    8:58PM DBG Starting to run query iam_policies_attached_to_user
+    8:58PM DBG Finished to run query iam_policies_attached_to_user after 62.28µs
+    8:58PM DBG Starting to run query iam_policies_with_full_privileges
+    8:58PM DBG Finished to run query iam_policies_with_full_privileges after 90.513µs
+    8:58PM DBG Starting to run query iam_policies_without_groups
+    8:58PM DBG Finished to run query iam_policies_without_groups after 151.917µs
+    8:58PM DBG Starting to run query iam_policy_grants_assumerole_permission_across_all_services
+    8:58PM DBG Finished to run query iam_policy_grants_assumerole_permission_across_all_services after 110.688µs
+    8:58PM DBG Starting to run query iam_policy_grants_full_permissions
+    8:58PM DBG Finished to run query iam_policy_grants_full_permissions after 60.273µs
+    8:58PM DBG Starting to run query iam_policy_on_user
+    8:58PM DBG Finished to run query iam_policy_on_user after 98.196µs
+    8:58PM DBG Starting to run query iam_role_allows_all_principals_to_assume
+    8:58PM DBG Finished to run query iam_role_allows_all_principals_to_assume after 241.332µs
+    8:58PM DBG Starting to run query iam_user_login_profile_password_is_in_plaintext
+    8:58PM DBG Finished to run query iam_user_login_profile_password_is_in_plaintext after 64.304µs
+    8:58PM DBG Starting to run query iam_user_too_many_access_keys
+    8:58PM DBG Finished to run query iam_user_too_many_access_keys after 67.817µs
+    8:58PM DBG Starting to run query iam_user_with_no_group
+    8:58PM DBG Finished to run query iam_user_with_no_group after 247.876µs
+    8:58PM DBG Starting to run query inline_policies_are_attached_to_ecs_service
+    8:58PM DBG Finished to run query inline_policies_are_attached_to_ecs_service after 61.432µs
+    8:58PM DBG Starting to run query instance_with_no_vpc
+    8:58PM DBG Finished to run query instance_with_no_vpc after 66.745µs
+    8:58PM DBG Starting to run query iot_policy_allows_action_as_wildcard
+    8:58PM DBG Finished to run query iot_policy_allows_action_as_wildcard after 62.497µs
+    8:58PM DBG Starting to run query iot_policy_allows_wildcard_resource
+    8:58PM DBG Finished to run query iot_policy_allows_wildcard_resource after 72.425µs
+    8:58PM DBG Starting to run query kinesis_sse_not_configured
+    8:58PM DBG Finished to run query kinesis_sse_not_configured after 273.26µs
+    8:58PM DBG Starting to run query kms_allows_wildcard_principal
+    8:58PM DBG Finished to run query kms_allows_wildcard_principal after 199.317µs
+    8:58PM DBG Starting to run query kms_enable_key_rotation_disabled
+    8:58PM DBG Finished to run query kms_enable_key_rotation_disabled after 103.633µs
+    8:58PM DBG Starting to run query kms_key_with_full_permissions
+    8:58PM DBG Finished to run query kms_key_with_full_permissions after 107.688µs
+    8:58PM DBG Starting to run query lambda_function_without_dead_letter_queue
+    8:58PM DBG Finished to run query lambda_function_without_dead_letter_queue after 144.212µs
+    8:58PM DBG Starting to run query lambda_function_without_tags
+    8:58PM DBG Finished to run query lambda_function_without_tags after 103.857µs
+    8:58PM DBG Starting to run query lambda_functions_with_full_privileges
+    8:58PM DBG Finished to run query lambda_functions_with_full_privileges after 117.673µs
+    8:58PM DBG Starting to run query lambda_functions_without_unique_iam_roles
+    8:58PM DBG Finished to run query lambda_functions_without_unique_iam_roles after 94.632µs
+    8:58PM DBG Starting to run query lambda_functions_without_x-ray_tracing
+    8:58PM DBG Finished to run query lambda_functions_without_x-ray_tracing after 152.586µs
+    8:58PM DBG Starting to run query lambda_permission_misconfigured
+    8:58PM DBG Finished to run query lambda_permission_misconfigured after 174.998µs
+    8:58PM DBG Starting to run query lambda_permission_principal_is_wildcard
+    8:58PM DBG Finished to run query lambda_permission_principal_is_wildcard after 141.353µs
+    8:58PM DBG Starting to run query low_rds_backup_retention_period
+    8:58PM DBG Finished to run query low_rds_backup_retention_period after 312.303µs
+    8:58PM DBG Starting to run query memcached_disabled
+    8:58PM DBG Finished to run query memcached_disabled after 64.03µs
+    8:58PM DBG Starting to run query mq_broker_is_publicly_accessible
+    8:58PM DBG Finished to run query mq_broker_is_publicly_accessible after 79.757µs
+    8:58PM DBG Starting to run query mq_broker_logging_disabled
+    8:58PM DBG Finished to run query mq_broker_logging_disabled after 132.752µs
+    8:58PM DBG Starting to run query msk_broker_is_publicly_accessible
+    8:58PM DBG Finished to run query msk_broker_is_publicly_accessible after 110.678µs
+    8:58PM DBG Starting to run query msk_cluster_encryption_disabled
+    8:58PM DBG Finished to run query msk_cluster_encryption_disabled after 64.234µs
+    8:58PM DBG Starting to run query msk_cluster_logging_disabled
+    8:58PM DBG Finished to run query msk_cluster_logging_disabled after 105.212µs
+    8:58PM DBG Starting to run query neptune_cluster_with_iam_database_authentication_disabled
+    8:58PM DBG Finished to run query neptune_cluster_with_iam_database_authentication_disabled after 270.63µs
+    8:58PM DBG Starting to run query neptune_database_cluster_encryption_disabled
+    8:58PM DBG Finished to run query neptune_database_cluster_encryption_disabled after 155.929µs
+    8:58PM DBG Starting to run query public_lambda_via_api_gateway
+    8:58PM DBG Finished to run query public_lambda_via_api_gateway after 164.753µs
+    8:58PM DBG Starting to run query rds_associated_with_public_subnet
+    8:58PM DBG Finished to run query rds_associated_with_public_subnet after 133.428µs
+    8:58PM DBG Starting to run query rds_db_instance_with_deletion_protection_disabled
+    8:58PM DBG Finished to run query rds_db_instance_with_deletion_protection_disabled after 288.776µs
+    8:58PM DBG Starting to run query rds_multi_az_deployment_disabled
+    8:58PM DBG Finished to run query rds_multi_az_deployment_disabled after 225.979µs
+    8:58PM DBG Starting to run query rds_storage_encryption_disabled
+    8:58PM DBG Finished to run query rds_storage_encryption_disabled after 196.569µs
+    8:58PM DBG Starting to run query rds_storage_not_encrypted
+    8:58PM DBG Finished to run query rds_storage_not_encrypted after 319.041µs
+    8:58PM DBG Starting to run query rds_using_default_port
+    8:58PM DBG Finished to run query rds_using_default_port after 181.75µs
+    8:58PM DBG Starting to run query rds_with_backup_disabled
+    8:58PM DBG Finished to run query rds_with_backup_disabled after 473.17µs
+    8:58PM DBG Starting to run query redshift_cluster_logging_disabled
+    8:58PM DBG Finished to run query redshift_cluster_logging_disabled after 73.1µs
+    8:58PM DBG Starting to run query redshift_cluster_without_kms_cmk
+    8:58PM DBG Finished to run query redshift_cluster_without_kms_cmk after 61.19µs
+    8:58PM DBG Starting to run query redshift_not_encrypted
+    8:58PM DBG Finished to run query redshift_not_encrypted after 78.201µs
+    8:58PM DBG Starting to run query redshift_publicly_accessible
+    8:58PM DBG Finished to run query redshift_publicly_accessible after 120.044µs
+    8:58PM DBG Starting to run query redshift_using_default_port
+    8:58PM DBG Finished to run query redshift_using_default_port after 62.028µs
+    8:58PM DBG Starting to run query refresh_token_is_exposed
+    8:58PM DBG Finished to run query refresh_token_is_exposed after 88.076µs
+    8:58PM DBG Starting to run query remote_desktop_port_open_to_internet
+    8:58PM DBG Finished to run query remote_desktop_port_open_to_internet after 239.396µs
+    8:58PM DBG Starting to run query root_account_has_active_access_keys
+    8:58PM DBG Finished to run query root_account_has_active_access_keys after 60.704µs
+    8:58PM DBG Starting to run query route53_record_undefined
+    8:58PM DBG Finished to run query route53_record_undefined after 90.412µs
+    8:58PM DBG Starting to run query routertable_with_default_routing
+    8:58PM DBG Finished to run query routertable_with_default_routing after 333.73µs
+    8:58PM DBG Starting to run query s3_bucket_access_to_any_principal
+    8:58PM DBG Finished to run query s3_bucket_access_to_any_principal after 218.699µs
+    8:58PM DBG Starting to run query s3_bucket_acl_allows_read_or_write_to_all_users
+    8:58PM DBG Finished to run query s3_bucket_acl_allows_read_or_write_to_all_users after 193.656µs
+    8:58PM DBG Starting to run query s3_bucket_acl_allows_read_to_all_users
+    8:58PM DBG Finished to run query s3_bucket_acl_allows_read_to_all_users after 139.662µs
+    8:58PM DBG Starting to run query s3_bucket_acl_allows_read_to_any_authenticated_user
+    8:58PM DBG Finished to run query s3_bucket_acl_allows_read_to_any_authenticated_user after 216.196µs
+    8:58PM DBG Starting to run query s3_bucket_allows_delete_actions_from_all_principals
+    8:58PM DBG Finished to run query s3_bucket_allows_delete_actions_from_all_principals after 232.121µs
+    8:58PM DBG Starting to run query s3_bucket_allows_get_actions_from_all_principals
+    8:58PM DBG Finished to run query s3_bucket_allows_get_actions_from_all_principals after 138.649µs
+    8:58PM DBG Starting to run query s3_bucket_allows_list_actions_from_all_principals
+    8:58PM DBG Finished to run query s3_bucket_allows_list_actions_from_all_principals after 109.454µs
+    8:58PM DBG Starting to run query s3_bucket_allows_public_acl
+    8:58PM DBG Finished to run query s3_bucket_allows_public_acl after 67.513µs
+    8:58PM DBG Starting to run query s3_bucket_allows_put_actions_from_all_principals
+    8:58PM DBG Finished to run query s3_bucket_allows_put_actions_from_all_principals after 216.068µs
+    8:58PM DBG Starting to run query s3_bucket_allows_restore_actions_from_all_principals
+    8:58PM DBG Finished to run query s3_bucket_allows_restore_actions_from_all_principals after 273.26µs
+    8:58PM DBG Starting to run query s3_bucket_cloudtrail_logging_disabled
+    8:58PM DBG Finished to run query s3_bucket_cloudtrail_logging_disabled after 248.737µs
+    8:58PM DBG Starting to run query s3_bucket_logging_disabled
+    8:58PM DBG Finished to run query s3_bucket_logging_disabled after 163.934µs
+    8:58PM DBG Starting to run query s3_bucket_should_have_bucket_policy
+    8:58PM DBG Finished to run query s3_bucket_should_have_bucket_policy after 193.45µs
+    8:58PM DBG Starting to run query s3_bucket_sse_disabled
+    8:58PM DBG Finished to run query s3_bucket_sse_disabled after 87.298µs
+    8:58PM DBG Starting to run query s3_bucket_with_all_permissions
+    8:58PM DBG Finished to run query s3_bucket_with_all_permissions after 193.482µs
+    8:58PM DBG Starting to run query s3_bucket_with_public_policy
+    8:58PM DBG Finished to run query s3_bucket_with_public_policy after 82.9µs
+    8:58PM DBG Starting to run query s3_bucket_with_unsecured_cors_rule
+    8:58PM DBG Finished to run query s3_bucket_with_unsecured_cors_rule after 161.141µs
+    8:58PM DBG Starting to run query s3_bucket_without_ignore_public_acl
+    8:58PM DBG Finished to run query s3_bucket_without_ignore_public_acl after 52.68µs
+    8:58PM DBG Starting to run query s3_bucket_without_restriction_of_public_bucket
+    8:58PM DBG Finished to run query s3_bucket_without_restriction_of_public_bucket after 73.429µs
+    8:58PM DBG Starting to run query s3_bucket_without_server_side_encryption
+    8:58PM DBG Finished to run query s3_bucket_without_server_side_encryption after 66.477µs
+    8:58PM DBG Starting to run query s3_bucket_without_ssl_in_write_actions
+    8:58PM DBG Finished to run query s3_bucket_without_ssl_in_write_actions after 66.973µs
+    8:58PM DBG Starting to run query s3_bucket_without_versioning
+    8:58PM DBG Finished to run query s3_bucket_without_versioning after 264.823µs
+    8:58PM DBG Starting to run query s3_static_website_host_enabled
+    8:58PM DBG Finished to run query s3_static_website_host_enabled after 116.661µs
+    8:58PM DBG Starting to run query sagemaker_data_encryption_disabled
+    8:58PM DBG Finished to run query sagemaker_data_encryption_disabled after 97.528µs
+    8:58PM DBG Starting to run query sagemaker_enabling_internet_access
+    8:58PM DBG Finished to run query sagemaker_enabling_internet_access after 60.118µs
+    8:58PM DBG Starting to run query sagemaker_endpoint_config_should_specify_kms_key_id_attribute
+    8:58PM DBG Finished to run query sagemaker_endpoint_config_should_specify_kms_key_id_attribute after 94.638µs
+    8:58PM DBG Starting to run query sagemaker_notebook_not_placed_in_vpc
+    8:58PM DBG Finished to run query sagemaker_notebook_not_placed_in_vpc after 62.244µs
+    8:58PM DBG Starting to run query sdb_domain_declared_as_a_resource
+    8:58PM DBG Finished to run query sdb_domain_declared_as_a_resource after 96.292µs
+    8:58PM DBG Starting to run query secrets_manager_should_specify_kms_key_id
+    8:58PM DBG Finished to run query secrets_manager_should_specify_kms_key_id after 227.413µs
+    8:58PM DBG Starting to run query secure_ciphers_disabled
+    8:58PM DBG Finished to run query secure_ciphers_disabled after 139.627µs
+    8:58PM DBG Starting to run query security_group_egress_cidr_open_to_world
+    8:58PM DBG Finished to run query security_group_egress_cidr_open_to_world after 519.049µs
+    8:58PM DBG Starting to run query security_group_egress_with_all_protocols
+    8:58PM DBG Finished to run query security_group_egress_with_all_protocols after 177.453µs
+    8:58PM DBG Starting to run query security_group_egress_with_port_range
+    8:58PM DBG Finished to run query security_group_egress_with_port_range after 223.404µs
+    8:58PM DBG Starting to run query security_group_ingress_has_cidr_not_recommended
+    8:58PM DBG Finished to run query security_group_ingress_has_cidr_not_recommended after 305.271µs
+    8:58PM DBG Starting to run query security_group_ingress_with_all_protocols
+    8:58PM DBG Finished to run query security_group_ingress_with_all_protocols after 188.51µs
+    8:58PM DBG Starting to run query security_group_ingress_with_port_range
+    8:58PM DBG Finished to run query security_group_ingress_with_port_range after 187.975µs
+    8:58PM DBG Starting to run query security_group_rule_without_description
+    8:58PM DBG Finished to run query security_group_rule_without_description after 370.544µs
+    8:58PM DBG Starting to run query security_groups_allows_unrestricted_outbound_traffic
+    8:58PM DBG Finished to run query security_groups_allows_unrestricted_outbound_traffic after 226.811µs
+    8:58PM DBG Starting to run query security_groups_unrestricted_access_to_rdp
+    8:58PM DBG Finished to run query security_groups_unrestricted_access_to_rdp after 214.112µs
+    8:58PM DBG Starting to run query security_groups_with_exhibited_admin_ports
+    8:58PM DBG Finished to run query security_groups_with_exhibited_admin_ports after 195.801µs
+    8:58PM DBG Starting to run query security_groups_with_meta_ip
+    8:58PM DBG Finished to run query security_groups_with_meta_ip after 71.974µs
+    8:58PM DBG Starting to run query security_groups_with_unrestricted_access_to_ssh
+    8:58PM DBG Finished to run query security_groups_with_unrestricted_access_to_ssh after 65.735µs
+    8:58PM DBG Starting to run query security_groups_without_vpc_attached
+    8:58PM DBG Finished to run query security_groups_without_vpc_attached after 265.375µs
+    8:58PM DBG Starting to run query shield_advanced_not_in_use
+    8:58PM DBG Finished to run query shield_advanced_not_in_use after 82.625µs
+    8:58PM DBG Starting to run query sns_topic_is_publicly_accessible
+    8:58PM DBG Finished to run query sns_topic_is_publicly_accessible after 100.274µs
+    8:58PM DBG Starting to run query sns_topic_publicity_has_allow_and_not_action_simultaneously
+    8:58PM DBG Finished to run query sns_topic_publicity_has_allow_and_not_action_simultaneously after 68.717µs
+    8:58PM DBG Starting to run query sns_topic_without_kms_master_key_id
+    8:58PM DBG Finished to run query sns_topic_without_kms_master_key_id after 61.788µs
+    8:58PM DBG Starting to run query sqs_policy_with_public_access
+    8:58PM DBG Finished to run query sqs_policy_with_public_access after 89.174µs
+    8:58PM DBG Starting to run query sqs_queue_policy_allows_not_action
+    8:58PM DBG Finished to run query sqs_queue_policy_allows_not_action after 140.183µs
+    8:58PM DBG Starting to run query sqs_queue_policy_allows_not_principal
+    8:58PM DBG Finished to run query sqs_queue_policy_allows_not_principal after 62.48µs
+    8:58PM DBG Starting to run query sqs_with_sse_disabled
+    8:58PM DBG Finished to run query sqs_with_sse_disabled after 267.789µs
+    8:58PM DBG Starting to run query stack_notifications_disabled
+    8:58PM DBG Finished to run query stack_notifications_disabled after 41.587µs
+    8:58PM DBG Starting to run query stack_retention_disabled
+    8:58PM DBG Finished to run query stack_retention_disabled after 74.425µs
+    8:58PM DBG Starting to run query support_has_no_role_associated
+    8:58PM DBG Finished to run query support_has_no_role_associated after 126.848µs
+    8:58PM DBG Starting to run query tcp_or_udp_protocol_network_acl_entry_allows_all_ports
+    8:58PM DBG Finished to run query tcp_or_udp_protocol_network_acl_entry_allows_all_ports after 147.297µs
+    8:58PM DBG Starting to run query unknown_port_exposed_to_internet
+    8:58PM DBG Finished to run query unknown_port_exposed_to_internet after 127.953µs
+    8:58PM DBG Starting to run query unrestricted_security_group_ingress
+    8:58PM DBG Finished to run query unrestricted_security_group_ingress after 353.757µs
+    8:58PM DBG Starting to run query unscanned_ecr_image
+    8:58PM DBG Finished to run query unscanned_ecr_image after 75.84µs
+    8:58PM DBG Starting to run query user_data_contains_encoded_private_key
+    8:58PM DBG Finished to run query user_data_contains_encoded_private_key after 152.561µs
+    8:58PM DBG Starting to run query user_data_shell_script_is_encoded
+    8:58PM DBG Finished to run query user_data_shell_script_is_encoded after 148.343µs
+    8:58PM DBG Starting to run query user_iam_missing_password_reset_required
+    8:58PM DBG Finished to run query user_iam_missing_password_reset_required after 167.668µs
+    8:58PM DBG Starting to run query vpc_attached_with_too_many_gateways
+    8:58PM DBG Finished to run query vpc_attached_with_too_many_gateways after 131.619µs
+    8:58PM DBG Starting to run query vpc_flowlogs_disabled
+    8:58PM DBG Finished to run query vpc_flowlogs_disabled after 71.58µs
+    8:58PM DBG Starting to run query vpc_without_attached_subnet
+    8:58PM DBG Finished to run query vpc_without_attached_subnet after 162.348µs
+    8:58PM DBG Starting to run query vpc_without_network_firewall
+    8:58PM DBG Finished to run query vpc_without_network_firewall after 119.182µs
+    8:58PM DBG Starting to run query vulnerable_default_ssl_certificate
+    8:58PM DBG Finished to run query vulnerable_default_ssl_certificate after 266.105µs
+    8:58PM DBG Starting to run query webacl_allow_defaultaction
+    8:58PM DBG Finished to run query webacl_allow_defaultaction after 74.556µs
+    8:58PM DBG Starting to run query wildcard_in_acm_certificate_domain_name
+    8:58PM DBG Finished to run query wildcard_in_acm_certificate_domain_name after 88.976µs
+    8:58PM DBG Starting to run query workspace_without_encryption
+    8:58PM DBG Finished to run query workspace_without_encryption after 67.913µs
+    8:58PM DBG Starting to run query serverless_api_access_logging_setting_undefined
+    8:58PM DBG Finished to run query serverless_api_access_logging_setting_undefined after 72.101µs
+    8:58PM DBG Starting to run query serverless_api_cache_cluster_disabled
+    8:58PM DBG Finished to run query serverless_api_cache_cluster_disabled after 123.599µs
+    8:58PM DBG Starting to run query serverless_api_endpoint_config_not_private
+    8:58PM DBG Finished to run query serverless_api_endpoint_config_not_private after 73.976µs
+    8:58PM DBG Starting to run query serverless_api_without_content_encoding
+    8:58PM DBG Finished to run query serverless_api_without_content_encoding after 66.297µs
+    8:58PM DBG Starting to run query serverless_api_xray_tracing_disabled
+    8:58PM DBG Finished to run query serverless_api_xray_tracing_disabled after 65.113µs
+    8:58PM DBG Starting to run query serverless_function_environment_variables_not_encrypted
+    8:58PM DBG Finished to run query serverless_function_environment_variables_not_encrypted after 60.659µs
+    8:58PM DBG Starting to run query serverless_function_without_dead_letter_queue
+    8:58PM DBG Finished to run query serverless_function_without_dead_letter_queue after 261.871µs
+    8:58PM DBG Starting to run query serverless_function_without_tags
+    8:58PM DBG Finished to run query serverless_function_without_tags after 94.226µs
+    8:58PM DBG Starting to run query serverless_function_without_unique_iam_role
+    8:58PM DBG Finished to run query serverless_function_without_unique_iam_role after 60.909µs
+    8:58PM DBG Starting to run query serverless_function_without_x-ray_tracing
+    8:58PM DBG Finished to run query serverless_function_without_x-ray_tracing after 65.987µs
+    8:58PM DBG Starting to run query serverless_api_access_logging_setting_undefined
+    8:58PM DBG Finished to run query serverless_api_access_logging_setting_undefined after 114.061µs
+    8:58PM DBG Starting to run query serverless_api_endpoint_config_not_private
+    8:58PM DBG Finished to run query serverless_api_endpoint_config_not_private after 72.328µs
+    8:58PM DBG Starting to run query serverless_api_without_content_encoding
+    8:58PM DBG Finished to run query serverless_api_without_content_encoding after 305.834µs
+    8:58PM DBG Starting to run query serverless_api_xray_tracing_disabled
+    8:58PM DBG Finished to run query serverless_api_xray_tracing_disabled after 118.575µs
+    8:58PM DBG Starting to run query serverless_function_environment_variables_not_encrypted
+    8:58PM DBG Finished to run query serverless_function_environment_variables_not_encrypted after 59.884µs
+    8:58PM DBG Starting to run query serverless_function_without_dead_letter_queue
+    8:58PM DBG Finished to run query serverless_function_without_dead_letter_queue after 88.397µs
+    8:58PM DBG Starting to run query serverless_function_without_tags
+    8:58PM DBG Finished to run query serverless_function_without_tags after 57.027µs
+    8:58PM DBG Starting to run query serverless_function_without_unique_iam_role
+    8:58PM DBG Finished to run query serverless_function_without_unique_iam_role after 65.994µs
+    8:58PM DBG Starting to run query serverless_function_without_x-ray_tracing
+    8:58PM DBG Finished to run query serverless_function_without_x-ray_tracing after 129.004µs
+    8:58PM DBG Starting to run query serverless_role_with_full_privileges
+    8:58PM DBG Finished to run query serverless_role_with_full_privileges after 74.334µs
+    8:58PM DBG model.CreateSummary()
+    8:58PM DBG HTTP POST to descriptions endpoint
+    8:58PM DBG HTTP Status: 200 OK 273.341921ms
+    8:58PM DBG console.resolveOutputs()
+    8:58PM DBG helpers.PrintResult()
+    8:58PM INF Scanned Files: 2
+    8:58PM INF Parsed Files: 2
+    8:58PM INF Scanned Lines: 14
+    8:58PM INF Parsed Lines: 13
+    8:58PM INF Ignored Lines: 1
+    8:58PM INF Queries loaded: 798
+    8:58PM INF Queries failed to execute: 0
+    8:58PM INF Inspector stopped
+    8:58PM DBG console.printOutput()
+    8:58PM DBG Output formats provided [json,html]
+    8:58PM DBG helpers.GenerateReport()
+    8:58PM INF Results saved to file /workspace/kics/results.json fileName=results.json
+    8:58PM INF Results saved to file /workspace/kics/results.html fileName=results.html
+    8:58PM INF Scan duration: 16928ms
+  stdout_lines: <omitted>
+2023-07-26 16:58:33,870 p=43689 u=anappi n=ansible | PLAY RECAP *********************************************************************************************************************
+2023-07-26 16:58:33,870 p=43689 u=anappi n=ansible | localhost                  : ok=0    changed=0    unreachable=0    failed=1    skipped=0    rescued=0    ignored=0   

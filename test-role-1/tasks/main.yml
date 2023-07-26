@@ -1,7 +1,7 @@
 ---
 # tasks file for test-role-1
 - name: Scan with KICS
-  ansible.builtin.command: docker run --rm -t -v {{ local_workspace }}:{{ container_workspace }} checkmarx/kics:v1.7.4 scan --ci -p {{ path_to_scan }} -o {{ output_dir }} --report-formats json,html
+  ansible.builtin.command: docker run --rm -t -v {{ local_workspace }}:{{ container_workspace }} checkmarx/kics:v1.7.4 scan --ci -p {{ path_to_scan }} -o {{ output_dir }} --report-formats json,html --log-level=DEBUG
   vars:
     local_workspace: "{{ lookup('env', 'PWD') }}"
     container_workspace: /workspace
