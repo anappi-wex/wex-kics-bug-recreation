@@ -1,0 +1,7 @@
+---
+- name: Test KICS
+  gather_facts: false
+  hosts: localhost
+
+  roles:
+    - role: test-role-1
